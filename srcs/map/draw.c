@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 19:47:56 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:59:42 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	draw_block(t_game *game, int x, int y)
 		copy_img_to(&game->map.render_map, &game->resources.wall,\
 				to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 	}
-	if (block == FLOOR || block == COLLETIBLE || block == PLAYER)
+	else
 	{
 		copy_img_to(&game->map.render_map, &game->resources.floor,\
 				to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
@@ -45,6 +45,7 @@ void	render_map(t_game *game)
 			draw_block(game, x, y);
 			x++;
 		}
+		x = 0;
 		y++;
 	}
 }

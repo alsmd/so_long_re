@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:58 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 19:44:53 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:40:07 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 	*(unsigned int *)dest = color;
 }
  */
-int	main_2(void)
+/* int	main2(void)
 {
 	t_vars	vars;
 	t_data	player;
@@ -47,8 +47,7 @@ int	main_2(void)
 	
 	mlx_loop(vars.mlx);
 	return (0);
-}
-
+} */
 
 int	main(int argc, char *argv[])
 {
@@ -58,6 +57,9 @@ int	main(int argc, char *argv[])
 	status = map_check_controller(&game, "./maps/simple.ber");
 	if (status != VALID_MAP)
 		return (print_message_status(status));
-	game_config(&game);
+	status = game_config(&game);
+	if (status == SERVER_ERROR)
+		return (print_message_status(status));
+	//game_init(game);
 	return (0);
 }

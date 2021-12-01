@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 19:41:43 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:31:14 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,13 @@ int		game_config(t_game *game);
 	@brief	Load the game resources.
 */
 void	load_resources(t_game *game);
+
+
+//PLAYER
+
+/*
+	@brief	load player's walk sprites
+*/
+void	player_walk_sprites(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:15:03 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 17:40:23 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 20:38:15 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	print_message_status(int status)
 		message = "Map not found.\n";
 	if (status == WRONG_MAP_FORMAT)
 		message = "Map has a wrong format!\n";
+	if (status == SERVER_ERROR)
+		message = "An error occurred in the server!\n";
 	printf("%s%s%s", RED, message, WHITE);
 	return (status);
 }
