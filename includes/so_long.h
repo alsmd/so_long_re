@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 20:31:14 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 21:27:33 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 	@brief	Will make the checks corresponding to the map and
 			keep the map in an array
 */
-int		map_check_controller(t_game *game, char *map_name);
+int		map_check(t_game *game, char *map_name);
 
 /*
 	@brief	Returns a string containing the map
@@ -69,6 +69,10 @@ int		print_message_status(int status);
 */
 int		game_config(t_game *game);
 
+/*
+	@brief	Init our game.
+*/
+int		game_init(t_game *game);
 
 //RESOURCES
 /*
@@ -76,9 +80,7 @@ int		game_config(t_game *game);
 */
 void	load_resources(t_game *game);
 
-
 //PLAYER
-
 /*
 	@brief	load player's walk sprites
 */

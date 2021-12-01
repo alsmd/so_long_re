@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:31:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 20:15:44 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 21:14:33 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static int	check_map_format(t_game *game, int fd)
 	return (1);
 }
 
-int	map_check_controller(t_game *game, char *map_name)
+int	map_check(t_game *game, char *map_name)
 {
 	int	fd;
 

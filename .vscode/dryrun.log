@@ -1,8 +1,14 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/coder/Desktop/so_long_re'
+clang -g -Imlx -Ibass -c srcs/main.c -o srcs/main.o
+clang -g -Imlx -Ibass -c srcs/message.c -o srcs/message.o
+clang -g -Imlx -Ibass -c srcs/map/check.c -o srcs/map/check.o
+clang -g -Imlx -Ibass -c srcs/map/manipulation.c -o srcs/map/manipulation.o
+clang -g -Imlx -Ibass -c srcs/map/draw.c -o srcs/map/draw.o
 clang -g -Imlx -Ibass -c srcs/game/game_config.c -o srcs/game/game_config.o
 clang -g -Imlx -Ibass -c srcs/game/resources.c -o srcs/game/resources.o
+clang -g -Imlx -Ibass -c srcs/game/game_init.c -o srcs/game/game_init.o
 clang -g -Imlx -Ibass -c srcs/player/resources.c -o srcs/player/resources.o
-clang -g -o so_long ./srcs/main.o ./srcs/message.o ./srcs/map/check.o ./srcs/map/manipulation.o ./srcs/map/draw.o ./srcs/game/game_config.o ./srcs/game/resources.o ./srcs/player/resources.o ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
+clang -g -o so_long ./srcs/main.o ./srcs/message.o ./srcs/map/check.o ./srcs/map/manipulation.o ./srcs/map/draw.o ./srcs/game/game_config.o ./srcs/game/resources.o ./srcs/game/game_init.o ./srcs/player/resources.o ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 make: Leaving directory '/home/coder/Desktop/so_long_re'
  
