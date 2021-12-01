@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 17:33:55 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:41:43 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,27 @@ char	*get_map(int fd);
 void	put_map_on_array(t_game *game, char *map);
 
 /*
+	@brief	draw the current map on game.map.render_map
+*/
+void	render_map(t_game *game);
+
+//GAME
+/*
 	@brief	Prints the message correspondent to the status.
 			returns status.
 */
 int		print_message_status(int status);
+
+/*
+	@brief set game configurations
+*/
+int		game_config(t_game *game);
+
+
+//RESOURCES
+/*
+	@brief	Load the game resources.
+*/
+void	load_resources(t_game *game);
 
 #endif

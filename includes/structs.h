@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 17:09:11 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:24:40 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,19 @@ typedef struct s_map
 	int		height;
 }	t_map;
 
+typedef struct	s_resources
+{
+	t_data wall;
+	t_data floor;
+}	t_resources;
+
 typedef struct s_game
 {
-	t_vars	vars;
-	t_map	map;
+	t_vars		vars;
+	t_map		map;
+	t_resources	resources;
+	int			width;
+	int			height;
 }	t_game;
 
 enum e_status

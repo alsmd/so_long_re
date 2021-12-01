@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'srcs/game/game_config.o', needed by 'so_long'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,11 +8,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Dec  1 18:49:15 2021
+# Make data base, printed on Wed Dec  1 19:42:34 2021
 
 # Variables
 
-# makefile (from 'Makefile', line 5)
+# makefile (from 'Makefile', line 6)
 UTILS = ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
@@ -32,13 +34,13 @@ VSCODE_LOG_NATIVE = false
 CURDIR := /home/coder/Desktop/so_long_re
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 19)
 RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /home/coder/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/node
-# makefile (from 'Makefile', line 13)
+# makefile (from 'Makefile', line 14)
 CFLAGS = -g
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
@@ -46,7 +48,7 @@ MAKEFILE_LIST :=  Makefile
 GNUMAKEFLAGS := 
 # environment
 VSCODE_VERBOSE_LOGGING = true
-# makefile (from 'Makefile', line 3)
+# makefile (from 'Makefile', line 4)
 OBJS = $(SRCS:.c=.o)
 # environment
 VSCODE_CWD = /home/coder
@@ -57,7 +59,7 @@ PATH = /home/coder/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/b
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-81e30b95-420e-43ac-8dda-34b653bba736.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-93c9faa0-2e4b-45a8-8492-1111f6e58bd0.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -91,10 +93,10 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 1)
-SRCS = ./srcs/main.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/message.c
+SRCS = ./srcs/main.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/message.c ./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/map/draw.c
 # environment
 SHLVL = 0
-# makefile (from 'Makefile', line 16)
+# makefile (from 'Makefile', line 17)
 CC = clang
 # default
 MAKE_VERSION := 4.2.1
@@ -102,7 +104,7 @@ MAKE_VERSION := 4.2.1
 USER = coder
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from 'Makefile', line 11)
+# makefile (from 'Makefile', line 12)
 NAME = so_long
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -128,13 +130,13 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 10)
+# makefile (from 'Makefile', line 11)
 OBJS_UTILS = $(UTILS:.c=.o)
 # automatic
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from 'Makefile', line 14)
+# makefile (from 'Makefile', line 15)
 FLAGS = -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
@@ -159,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 147, inode 221316407): 10 files, no impossibilities.
+# . (device 147, inode 221316407): 11 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -170,23 +172,29 @@ MOTD_SHOWN = pam
 # Files
 
 # Not a target:
+srcs/map/draw.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 srcs/utils/get_next_line_utils.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.45743341
+#  Last modified 2021-12-01 19:15:44.829679187
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/ft_calloc.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.441432799
+#  Last modified 2021-12-01 19:15:44.813678573
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/map/manipulation.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.437432647
+#  Last modified 2021-12-01 18:53:42.022864985
 #  File has been updated.
 #  Successfully updated.
 
@@ -194,34 +202,33 @@ all: so_long
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.577437993
+#  Last modified 2021-12-01 19:42:32.691339359
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/pixel_manipulation.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.461433564
+#  Last modified 2021-12-01 19:15:44.841679647
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/get_next_line.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.453433258
+#  Last modified 2021-12-01 19:15:44.825679033
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/only_has.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.45743341
+#  Last modified 2021-12-01 19:15:44.837679493
 #  File has been updated.
 #  Successfully updated.
 
@@ -229,27 +236,27 @@ srcs/utils/only_has.c:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 23):
+#  recipe to execute (from 'Makefile', line 24):
 	${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
 
 fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 34):
+#  recipe to execute (from 'Makefile', line 35):
 	$(RM) $(NAME)
 
 # Not a target:
 srcs/utils/create_img.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.441432799
+#  Last modified 2021-12-01 19:15:44.80967842
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/is_in.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.45743341
+#  Last modified 2021-12-01 19:15:44.83367934
 #  File has been updated.
 #  Successfully updated.
 
@@ -262,14 +269,14 @@ srcs/utils/is_in.c:
 # Not a target:
 srcs/utils/ft_itoa.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.445432953
+#  Last modified 2021-12-01 19:15:44.813678573
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/ft_strlen.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.449433105
+#  Last modified 2021-12-01 19:15:44.82167888
 #  File has been updated.
 #  Successfully updated.
 
@@ -282,74 +289,85 @@ run: re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 32):
+#  recipe to execute (from 'Makefile', line 33):
+ 
 	valgrind --leak-check=full  ./$(NAME)
 
- 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 29):
+#  recipe to execute (from 'Makefile', line 30):
 	$(RM) $(OBJS) $(OBJS_UTILS)
 
 # Not a target:
 srcs/map/check.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.429432342
+#  Last modified 2021-12-01 18:53:41.942861898
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/ft_strjoin.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.449433105
+#  Last modified 2021-12-01 19:15:44.817678727
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/utils/ft_strcat.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.445432953
+#  Last modified 2021-12-01 19:15:44.817678727
 #  File has been updated.
 #  Successfully updated.
 
-so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/map/check.o srcs/map/manipulation.o srcs/message.o
+so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/map/check.o srcs/map/manipulation.o srcs/message.o srcs/game/game_config.o srcs/game/resources.o srcs/map/draw.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-12-01 18:47:54.685442118
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 26):
+#  Last modified 2021-12-01 18:53:42.822895861
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 27):
 	${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(UTILS) $(FLAGS)
 
 # Not a target:
 srcs/message.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.441432799
+#  Last modified 2021-12-01 18:53:42.098867919
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
+srcs/game/game_config.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 18:47:54.425432188
+#  Last modified 2021-12-01 18:53:41.890859891
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+srcs/game/resources.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=0/58=0%
+# Load=28/1024=3%, Rehash=0, Collisions=0/64=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 35 / storage = 480 B / avg = 13 B
-# current buf: size = 8162 B / used = 480 B / count = 35 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 39 / storage = 553 B / avg = 14 B
+# current buf: size = 8162 B / used = 553 B / count = 39 / avg = 14 B
 
-# strcache performance: lookups = 53 / hit rate = 33%
+# strcache performance: lookups = 57 / hit rate = 31%
 # hash-table stats:
-# Load=35/8192=0%, Rehash=0, Collisions=1/53=2%
-# Finished Make data base on Wed Dec  1 18:49:16 2021
+# Load=39/8192=0%, Rehash=0, Collisions=1/57=2%
+# Finished Make data base on Wed Dec  1 19:42:34 2021
 
  

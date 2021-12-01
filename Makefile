@@ -1,4 +1,5 @@
-SRCS =	./srcs/main.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/message.c
+SRCS =	./srcs/main.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/message.c ./srcs/game/game_config.c \
+		./srcs/game/resources.c ./srcs/map/draw.c
 
 OBJS = $(SRCS:.c=.o)
 

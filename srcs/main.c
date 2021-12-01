@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:58 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 18:46:51 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/01 19:44:53 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,11 @@ int	main_2(void)
 int	main(int argc, char *argv[])
 {
 	int		status;
-	int		y;
 	t_game	game;
 
-	y = 0;
 	status = map_check_controller(&game, "./maps/simple.ber");
 	if (status != VALID_MAP)
 		return (print_message_status(status));
-	while (y < game.map.height)
-	{
-		printf("%s\n", game.map.array[y]);
-		y++;
-	}
+	game_config(&game);
 	return (0);
 }
