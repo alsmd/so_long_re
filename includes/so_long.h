@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 21:27:33 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:05:44 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define ELEMENTS "01CEP"
 # define RED "\033[0;31m"
 # define WHITE "\033[0;37m"
+# define UP 119
+# define DOWN 115
+# define LEFT 97
+# define RIGHT 100
 # include "get_next_line.h"
 # include "utils.h"
 # include <mlx.h>
@@ -85,5 +89,21 @@ void	load_resources(t_game *game);
 	@brief	load player's walk sprites
 */
 void	player_walk_sprites(t_game *game);
+
+
+/*
+	@brief	set game->player.x/y correponding to player's position
+*/
+void	get_player_cord(t_game *game);
+
+/*
+	@brief	render player on the right position.
+*/
+void	render_player(t_game *game);
+
+/*
+	@brief	move the player if there is nothing in the way
+*/
+void	player_move(t_game *game, int move);
 
 #endif

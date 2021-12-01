@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 21:27:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:27:32 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct s_player
 	t_sprite	sprite;
 	int			x;
 	int			y;
+	int			half_step_x;
+	int			half_step_y;
 }	t_player;
 
 typedef struct s_resources
@@ -78,4 +80,5 @@ enum e_status
 	WRONG_MAP_FORMAT,
 	SERVER_ERROR
 };
+
 #endif

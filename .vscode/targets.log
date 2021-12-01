@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'srcs/player/action.o', needed by 'so_long'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Dec  1 21:09:22 2021
+# Make data base, printed on Thu Dec  2 00:02:31 2021
 
 # Variables
 
@@ -51,13 +53,13 @@ OBJS = $(SRCS:.c=.o)
 # environment
 VSCODE_CWD = /home/coder
 # environment
-SSH_CONNECTION = 192.168.127.0 1204 192.168.88.133 2222
+SSH_CONNECTION = 10.51.4.20 32196 192.168.88.133 2222
 # environment
 PATH = /home/coder/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/bin:/home/coder/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b2e7fc81-db50-4963-94c0-d5c6fe8d8abc.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-76bb5599-3a02-4c89-9c71-1e9a322b9cde.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -91,7 +93,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 1)
-SRCS = ./srcs/main.c ./srcs/message.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/map/draw.c ./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/player/resources.c
+SRCS = ./srcs/main.c ./srcs/message.c ./srcs/map/check.c ./srcs/map/manipulation.c ./srcs/map/draw.c ./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/player/resources.c ./srcs/player/draw.c ./srcs/player/action.c
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 19)
@@ -117,7 +119,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 192.168.127.0 1204 2222
+SSH_CLIENT = 10.51.4.20 32196 2222
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -159,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 147, inode 221316407): 11 files, no impossibilities.
+# . (device 147, inode 221316407): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -172,7 +174,7 @@ MOTD_SHOWN = pam
 # Not a target:
 srcs/map/draw.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.570647526
+#  Last modified 2021-12-01 23:54:04.714030031
 #  File has been updated.
 #  Successfully updated.
 
@@ -193,7 +195,7 @@ srcs/utils/ft_calloc.c:
 # Not a target:
 srcs/map/manipulation.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.506645083
+#  Last modified 2021-12-01 23:54:04.662028027
 #  File has been updated.
 #  Successfully updated.
 
@@ -201,13 +203,12 @@ all: so_long
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:52:55.788060187
+#  Last modified 2021-12-02 00:02:29.077304474
 #  File has been updated.
 #  Successfully updated.
 
@@ -221,7 +222,7 @@ srcs/utils/pixel_manipulation.c:
 # Not a target:
 srcs/game/game_init.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.726653481
+#  Last modified 2021-12-01 23:54:04.898037119
 #  File has been updated.
 #  Successfully updated.
 
@@ -235,7 +236,7 @@ srcs/utils/get_next_line.c:
 # Not a target:
 srcs/player/resources.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.774655313
+#  Last modified 2021-12-01 23:54:04.962039584
 #  File has been updated.
 #  Successfully updated.
 
@@ -275,12 +276,18 @@ srcs/utils/is_in.c:
 #  Successfully updated.
 
 # Not a target:
+srcs/player/action.o:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
 .DEFAULT:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 # Not a target:
 srcs/utils/ft_itoa.c:
 #  Implicit rule search has been done.
@@ -292,6 +299,13 @@ srcs/utils/ft_itoa.c:
 srcs/utils/ft_strlen.c:
 #  Implicit rule search has been done.
 #  Last modified 2021-12-01 19:15:44.82167888
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+srcs/player/draw.o:
+#  Implicit rule search has been done.
+#  Last modified 2021-12-01 23:54:05.02604205
 #  File has been updated.
 #  Successfully updated.
 
@@ -317,7 +331,7 @@ clean:
 # Not a target:
 srcs/map/check.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.454643098
+#  Last modified 2021-12-01 23:54:04.602025717
 #  File has been updated.
 #  Successfully updated.
 
@@ -335,56 +349,55 @@ srcs/utils/ft_strcat.c:
 #  File has been updated.
 #  Successfully updated.
 
-so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/message.o srcs/map/check.o srcs/map/manipulation.o srcs/map/draw.o srcs/game/game_config.o srcs/game/resources.o srcs/game/game_init.o srcs/player/resources.o
+so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/message.o srcs/map/check.o srcs/map/manipulation.o srcs/map/draw.o srcs/game/game_config.o srcs/game/resources.o srcs/game/game_init.o srcs/player/resources.o srcs/player/draw.o srcs/player/action.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-12-01 20:54:04.442680813
-#  File has been updated.
-#  Successfully updated.
+#  Last modified 2021-12-01 23:54:05.670066858
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 29):
 	${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(UTILS) $(FLAGS)
 
 # Not a target:
 srcs/message.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.386640503
+#  Last modified 2021-12-01 23:54:04.530022942
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/game_config.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.618649359
+#  Last modified 2021-12-01 23:54:04.778032496
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.334638517
+#  Last modified 2021-12-01 23:54:04.466020478
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/resources.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 20:54:03.670651344
+#  Last modified 2021-12-01 23:54:04.834034654
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=0/68=0%
+# Load=32/1024=3%, Rehash=0, Collisions=0/72=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 41 / storage = 599 B / avg = 14 B
-# current buf: size = 8162 B / used = 599 B / count = 41 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 44 / storage = 647 B / avg = 14 B
+# current buf: size = 8162 B / used = 647 B / count = 44 / avg = 14 B
 
-# strcache performance: lookups = 59 / hit rate = 30%
+# strcache performance: lookups = 62 / hit rate = 29%
 # hash-table stats:
-# Load=41/8192=1%, Rehash=0, Collisions=1/59=2%
-# Finished Make data base on Wed Dec  1 21:09:22 2021
+# Load=44/8192=1%, Rehash=0, Collisions=1/62=2%
+# Finished Make data base on Thu Dec  2 00:02:31 2021
 
  

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 21:23:46 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 00:18:32 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,30 @@
 
 int	keypress(int keycode, t_game *game)
 {
-	printf("do something\n");
+	if (keycode == DOWN)
+	{
+		player_move(game, DOWN);
+	}
+	if (keycode == UP)
+	{
+		player_move(game, UP);
+	}
+	if (keycode == LEFT)
+	{
+		player_move(game, LEFT);
+	}
+	if (keycode == RIGHT)
+	{
+		player_move(game, RIGHT);
+	}
+	printf("do something, %d\n", keycode);
 	return (1);
 }
 
 int	update_frame(t_game *game)
 {
 	render_map(game);
+	render_player(game);
 	mlx_put_image_to_window(game->vars.mlx, game->vars.win, \
 			game->map.render_map.img, 0, 0);
 	return (1);
