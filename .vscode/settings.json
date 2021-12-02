@@ -1,6 +1,8 @@
 {
 	"makefile.extensionOutputFolder": "./.vscode",
 	"files.associations": {
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"random": "c",
+		"*.tcc": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 00:18:32 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 02:11:42 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,7 @@
 
 int	keypress(int keycode, t_game *game)
 {
-	if (keycode == DOWN)
-	{
-		player_move(game, DOWN);
-	}
-	if (keycode == UP)
-	{
-		player_move(game, UP);
-	}
-	if (keycode == LEFT)
-	{
-		player_move(game, LEFT);
-	}
-	if (keycode == RIGHT)
-	{
-		player_move(game, RIGHT);
-	}
-	printf("do something, %d\n", keycode);
+	player_move(game, keycode);
 	return (1);
 }
 

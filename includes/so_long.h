@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 00:05:44 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 02:08:16 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define TRANSPARENT 0x010101
+# define TRANSPARENT 0x589058
 # define BLOCK_SIZE 32
 # define WALL '1'
 # define COLLETIBLE 'C'
@@ -106,4 +106,9 @@ void	render_player(t_game *game);
 */
 void	player_move(t_game *game, int move);
 
+/*
+	@brief	check collision on walls
+*/
+int	check_collision_y(t_game *game, int move);
+int	check_collision_x(t_game *game, int move);
 #endif

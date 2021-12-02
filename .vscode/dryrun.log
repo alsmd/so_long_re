@@ -1,7 +1,7 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/coder/Desktop/so_long_re'
 clang -g -Imlx -Ibass -c srcs/game/game_init.c -o srcs/game/game_init.o
-clang -g -Imlx -Ibass -c srcs/player/action.c -o srcs/player/action.o
-clang -g -o so_long ./srcs/main.o ./srcs/message.o ./srcs/map/check.o ./srcs/map/manipulation.o ./srcs/map/draw.o ./srcs/game/game_config.o ./srcs/game/resources.o ./srcs/game/game_init.o ./srcs/player/resources.o ./srcs/player/draw.o ./srcs/player/action.o ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
+clang -g -Imlx -Ibass -c srcs/player/check.c -o srcs/player/check.o
+clang -g -o so_long ./srcs/main.o ./srcs/message.o ./srcs/map/check.o ./srcs/map/manipulation.o ./srcs/map/draw.o ./srcs/game/game_config.o ./srcs/game/resources.o ./srcs/game/game_init.o ./srcs/player/resources.o ./srcs/player/draw.o ./srcs/player/action.o ./srcs/player/check.o ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 make: Leaving directory '/home/coder/Desktop/so_long_re'
  

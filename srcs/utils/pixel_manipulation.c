@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:15:47 by flavio            #+#    #+#             */
-/*   Updated: 2021/12/01 13:57:55 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 01:40:16 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	copy_img_from(t_data *dest, t_data *src, int info[4])
 		while (y < info[3])
 		{
 			pixel = get_pixel(src, info[0], info[1]);
-			if (pixel != 0 && pixel != -16777216)
+			if (pixel != TRANSPARENT)
 				put_pixel(dest, x, y, pixel);
 			y++;
 			info[1]++;
@@ -75,7 +75,7 @@ void	copy_img_to(t_data *dest, t_data *src, int info[4])
 		while (y < info[3])
 		{
 			pixel = get_pixel(src, x, y);
-			if (pixel != 0 && pixel != -16777216)
+			if (pixel != TRANSPARENT)
 				put_pixel(dest, info[0], info[1], pixel);
 			y++;
 			info[1]++;
