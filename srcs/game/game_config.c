@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 23:44:53 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:55:10 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	game_config(t_game *game)
 			game->height * BLOCK_SIZE, "teste");
 	if (game->vars.win == 0)
 		return (SERVER_ERROR);
-	load_resources(game);
 	set_cam(game);
-	printf("%d, %d \n", game->player.x, game->player.y);
+	load_resources(game);
+	game->vel = 0.1f;
 	return (0);
 }

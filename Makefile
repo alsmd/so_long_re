@@ -16,7 +16,7 @@ NAME = so_long
 CFLAGS		= -g
 FLAGS		= -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 
-CC = clang
+CC = gcc
 
 RM = rm -f
 

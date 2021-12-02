@@ -6,13 +6,17 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 00:36:46 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/02 21:46:20 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+typedef struct	s_float
+{
+	
+}	t_float;
 typedef struct s_data
 {
 	void	*img;
@@ -52,8 +56,11 @@ typedef struct s_player
 	t_sprite	sprite;
 	int			x;
 	int			y;
-	float		f_x;
-	float		f_y;
+	long double		f_x;
+	long double		f_y;
+	int			walk_frame;
+	int			direction;
+	int			delay;
 }	t_player;
 
 typedef struct s_resources
@@ -70,6 +77,7 @@ typedef struct s_game
 	t_player	player;
 	int			width;
 	int			height;
+	long double		vel;
 }	t_game;
 
 enum e_status
