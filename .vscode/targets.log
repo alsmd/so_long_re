@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Dec  3 18:16:05 2021
+# Make data base, printed on Fri Dec  3 22:25:21 2021
 
 # Variables
 
@@ -67,7 +67,6 @@ VSCODE_PIPE_LOGGING = true
 # environment
 PWD = /home/coder/Desktop/so_long_re
 # default
- 
 .LOADED := 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
@@ -92,7 +91,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from 'Makefile', line 1)
-SRCS = ./srcs/main.c ./srcs/message.c ./srcs/map/check.c ./srcs/map/utils.c ./srcs/map/draw.c ./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/player/resources.c ./srcs/player/draw.c ./srcs/player/action.c ./srcs/player/check.c
+SRCS = ./srcs/main.c ./srcs/message.c ./srcs/map/check.c ./srcs/map/utils.c ./srcs/map/draw.c ./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/game/utils.c ./srcs/player/resources.c ./srcs/player/draw.c ./srcs/player/action.c ./srcs/player/check.c
 # environment
 SHLVL = 0
 # makefile (from 'Makefile', line 19)
@@ -160,9 +159,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 115, inode 221316407): 14 files, no impossibilities.
+# . (device 115, inode 221316407): 11 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -173,7 +172,7 @@ MOTD_SHOWN = pam
 # Not a target:
 srcs/map/draw.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.890051613
+#  Last modified 2021-12-03 22:24:35.513971478
 #  File has been updated.
 #  Successfully updated.
 
@@ -201,7 +200,7 @@ all: so_long
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:30.069905705
+#  Last modified 2021-12-03 22:24:32.985875066
 #  File has been updated.
 #  Successfully updated.
 
@@ -215,14 +214,14 @@ srcs/utils/pixel_manipulation.c:
 # Not a target:
 srcs/player/check.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:34.134060933
+#  Last modified 2021-12-03 22:24:35.781981699
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/game_init.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.98605528
+#  Last modified 2021-12-03 22:24:35.609975139
 #  File has been updated.
 #  Successfully updated.
 
@@ -236,7 +235,7 @@ srcs/utils/get_next_line.c:
 # Not a target:
 srcs/player/resources.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:34.026056808
+#  Last modified 2021-12-03 22:24:35.67397758
 #  File has been updated.
 #  Successfully updated.
 
@@ -278,7 +277,8 @@ srcs/utils/is_in.c:
 # Not a target:
 srcs/player/action.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:34.098059558
+ 
+#  Last modified 2021-12-03 22:24:35.745980326
 #  File has been updated.
 #  Successfully updated.
 
@@ -305,7 +305,7 @@ srcs/utils/ft_strlen.c:
 # Not a target:
 srcs/player/draw.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:34.058058031
+#  Last modified 2021-12-03 22:24:35.709978953
 #  File has been updated.
 #  Successfully updated.
 
@@ -324,7 +324,7 @@ re: fclean all
 # Not a target:
 srcs/map/utils.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.858050391
+#  Last modified 2021-12-03 22:24:35.481970258
 #  File has been updated.
 #  Successfully updated.
 
@@ -338,7 +338,7 @@ clean:
 # Not a target:
 srcs/map/check.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.822049016
+#  Last modified 2021-12-03 22:24:35.445968884
 #  File has been updated.
 #  Successfully updated.
 
@@ -356,9 +356,16 @@ srcs/utils/ft_strcat.c:
 #  File has been updated.
 #  Successfully updated.
 
-so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/message.o srcs/map/check.o srcs/map/utils.o srcs/map/draw.o srcs/game/game_config.o srcs/game/resources.o srcs/game/game_init.o srcs/player/resources.o srcs/player/draw.o srcs/player/action.o srcs/player/check.o
+# Not a target:
+srcs/game/utils.o:
+#  Implicit rule search has been done.
+#  Last modified 2021-12-03 22:24:35.64197636
+#  File has been updated.
+#  Successfully updated.
+
+so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/main.o srcs/message.o srcs/map/check.o srcs/map/utils.o srcs/map/draw.o srcs/game/game_config.o srcs/game/resources.o srcs/game/game_init.o srcs/game/utils.o srcs/player/resources.o srcs/player/draw.o srcs/player/action.o srcs/player/check.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-12-03 18:15:34.490074531
+#  Last modified 2021-12-03 22:24:36.141995429
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 29):
@@ -367,46 +374,45 @@ so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c src
 # Not a target:
 srcs/message.o:
 #  Implicit rule search has been done.
- 
-#  Last modified 2021-12-03 18:15:33.782047488
+#  Last modified 2021-12-03 22:24:35.409967512
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/game_config.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.922052836
+#  Last modified 2021-12-03 22:24:35.545972699
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.750046266
+#  Last modified 2021-12-03 22:24:35.381966444
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/resources.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 18:15:33.954054058
+#  Last modified 2021-12-03 22:24:35.577973919
 #  File has been updated.
 #  Successfully updated.
 
 # files hash-table stats:
-# Load=33/1024=3%, Rehash=0, Collisions=1/74=1%
+# Load=34/1024=3%, Rehash=0, Collisions=1/76=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 47 / storage = 684 B / avg = 14 B
-# current buf: size = 8162 B / used = 684 B / count = 47 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 45 / storage = 670 B / avg = 14 B
+# current buf: size = 8162 B / used = 670 B / count = 45 / avg = 14 B
 
-# strcache performance: lookups = 65 / hit rate = 27%
+# strcache performance: lookups = 63 / hit rate = 28%
 # hash-table stats:
-# Load=47/8192=1%, Rehash=0, Collisions=1/65=2%
-# Finished Make data base on Fri Dec  3 18:16:05 2021
+# Load=45/8192=1%, Rehash=0, Collisions=1/63=2%
+# Finished Make data base on Fri Dec  3 22:25:21 2021
 
  

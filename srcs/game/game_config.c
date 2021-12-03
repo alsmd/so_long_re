@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 17:50:43 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:34:39 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	game_config(t_game *game)
 		return (SERVER_ERROR);
 	set_cam(game);
 	load_resources(game);
+	draw_fullmap(game);
 	game->vel = 0.125f;
 	return (0);
 }

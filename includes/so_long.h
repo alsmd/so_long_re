@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:03:10 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 22:19:57 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ void	put_map_on_array(t_game *game, char *map);
 */
 void	render_map(t_game *game);
 
+/*
+	@brief	draw the full map on game.map.full_map
+*/
+void	draw_fullmap(t_game *game);
+
 //GAME
 /*
 	@brief	Prints the message correspondent to the status.
@@ -86,6 +91,11 @@ int		game_config(t_game *game);
 	@brief	Init our game.
 */
 int		game_init(t_game *game);
+
+/*
+	@brief Checks if a and b have an aproximated value
+*/
+int		aprox(double a, double b);
 
 //RESOURCES
 /*

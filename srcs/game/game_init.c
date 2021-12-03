@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:18:08 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:42:06 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	close_game(t_game *game)
 	free(game->map.array);
 	free_player_walk_sprites(game);
 	mlx_destroy_image(game->vars.mlx, game->map.render_map.img);
+	mlx_destroy_image(game->vars.mlx, game->map.full_map.img);
 	mlx_destroy_image(game->vars.mlx, game->resources.wall.img);
 	mlx_destroy_image(game->vars.mlx, game->resources.floor.img);
 	mlx_destroy_window(game->vars.mlx, game->vars.win);

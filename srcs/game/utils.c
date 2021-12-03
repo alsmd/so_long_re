@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resources.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:27:48 by flda-sil         ###   ########.fr       */
+/*   Created: 2021/12/03 18:54:02 by flda-sil          #+#    #+#             */
+/*   Updated: 2021/12/03 22:25:28 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	load_resources(t_game *game)
+int	aprox(double a, double b)
 {
-	player_walk_sprites(game);
-	set_player_cord(game);
-	load_img(&game->resources.wall, "./assets/imgs/sceane/wall.xpm", game);
-	load_img(&game->resources.floor, "./assets/imgs/sceane/floor.xpm", game);
-	create_img(&game->map.render_map, game->width * BLOCK_SIZE, \
-			game->height * BLOCK_SIZE, game);
-	create_img(&game->map.full_map, game->map.width * BLOCK_SIZE, \
-			game->map.height * BLOCK_SIZE, game);
+	return (my_abs(a - b) < APROX_MIN);
 }

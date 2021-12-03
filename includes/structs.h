@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 17:51:57 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:43:02 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ typedef struct s_map
 {
 	char	**array;
 	t_data	render_map;
-	int		desloc_x;
-	int		desloc_y;
+	t_data	full_map;
+	double	desloc_x;
+	double	desloc_y;
 	int		width;
 	int		height;
 }	t_map;

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 01:07:08 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:38:18 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	render_player(t_game *game)
 
 	frame = game->player.walk_frame;
 	direction = get_direction(game);
-	x = (game->player.f_x - game->map.desloc_x) * BLOCK_SIZE;
-	y = (game->player.f_y - game->map.desloc_y) * BLOCK_SIZE;
+	x = (game->player.f_x) * BLOCK_SIZE;
+	y = (game->player.f_y) * BLOCK_SIZE;
 	copy_img_to(&game->map.render_map, &direction[frame], \
 			to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 }
