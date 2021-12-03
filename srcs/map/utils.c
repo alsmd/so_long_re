@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manipulation.c                                     :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:05:18 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 16:17:08 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:00:58 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,14 @@ void	put_map_on_array(t_game *game, char *map)
 		y++;
 		index += ft_linelen(&map[index]);
 	}
+}
+
+int	check_element(t_game *game, int y, int *check)
+{
+	if (is_in(game->map.array[y], COLLETIBLE))
+		check[0] = 1;
+	if (is_in(game->map.array[y], EXIT))
+		check[1] = 1;
+	if (is_in(game->map.array[y], PLAYER))
+		check[2] = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 00:37:15 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:03:10 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@
 			keep the map in an array
 */
 int		map_check(t_game *game, char *map_name);
+
+/*
+	@brief	map_check's helper
+*/
+int		check_element(t_game *game, int y, int *check);
 
 /*
 	@brief	Returns a string containing the map
@@ -94,11 +99,15 @@ void	load_resources(t_game *game);
 */
 void	player_walk_sprites(t_game *game);
 
+/*
+	@brief	frees player's walk sprites
+*/
+void	free_player_walk_sprites(t_game *game);
 
 /*
 	@brief	set game->player.x/y correponding to player's position
 */
-void	get_player_cord(t_game *game);
+void	set_player_cord(t_game *game);
 
 /*
 	@brief	render player on the right position.
@@ -113,6 +122,6 @@ void	player_move(t_game *game, int move);
 /*
 	@brief	check collision on walls
 */
-int	check_collision_y(t_game *game, int move);
-int	check_collision_x(t_game *game, int move);
+int		check_collision_y(t_game *game, int move);
+int		check_collision_x(t_game *game, int move);
 #endif

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 15:29:18 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:48:13 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_collision_y(t_game *game, int move)
 	int	half_step_y;
 	int	half_step_x;
 
-	half_step_y = !(my_abs(game->player.f_y  - game->player.y ) <= APROX_MIN);
+	half_step_y = !(my_abs(game->player.f_y - game->player.y) <= APROX_MIN);
 	half_step_x = !(my_abs(game->player.f_x - game->player.x) <= APROX_MIN);
 	if (half_step_y)
 		return (0);
@@ -73,7 +73,7 @@ int	check_collision_x(t_game *game, int move)
 	int	half_step_y;
 	int	half_step_x;
 
-	half_step_y = !(my_abs(game->player.f_y  - game->player.y ) <= APROX_MIN);
+	half_step_y = !(my_abs(game->player.f_y - game->player.y) <= APROX_MIN);
 	half_step_x = !(my_abs(game->player.f_x - game->player.x) <= APROX_MIN);
 	if (half_step_x)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 00:03:28 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:48:41 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ static void	move_y(t_game *game, int move)
 	}
 }
 
-
 static void	move_x(t_game *game, int move)
 {
 	int		direction;
 	double	next_block;
-	
+
 	if (move == RIGHT)
 		direction = 1;
 	else

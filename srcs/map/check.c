@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:31:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 00:12:29 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:10:25 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ static int	check_map_exist(char *map_name, int *fd)
 static int	check_map_elements(t_game *game, char *map)
 {
 	int	y;
-	int	*check;
+	int	check[3];
 	int	x;
 	int	pass;
 
 	y = 0;
 	x = 0;
-	check = (int *) ft_calloc(3, sizeof(int));
+	ft_bzero(check, sizeof(int) * 3);
 	while (y < game->map.height)
 	{
 		while (x < game->map.width)
@@ -59,18 +59,11 @@ static int	check_map_elements(t_game *game, char *map)
 				return (0);
 			x++;
 		}
-		if (is_in(game->map.array[y], COLLETIBLE))
-			check[0] = 1;
-		if (is_in(game->map.array[y], EXIT))
-			check[1] = 1;
-		if (is_in(game->map.array[y], PLAYER))
-			check[2] = 1;
+		check_element(game, y, check);
 		x = 0;
 		y++;
 	}
-	pass = check[0] & check[1] & check[2];
-	free(check);
-	return (pass);
+	return (check[0] & check[1] & check[2]);
 }
 
 static int	check_map_format(t_game *game, int fd)
@@ -111,7 +104,11 @@ int	map_check(t_game *game, char *map_name)
 	if (!check_map_exist(map_name, &fd))
 		return (MAP_NOT_EXIST);
 	if (!check_map_format(game, fd))
+	{
+		free(game->map.array[0]);
+		free(game->map.array);
 		return (WRONG_MAP_FORMAT);
+	}
 	close(fd);
 	game->map.desloc_x = 0;
 	game->map.desloc_y = 0;

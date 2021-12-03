@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/23 10:01:15 by flavio            #+#    #+#             */
-/*   Updated: 2021/12/02 22:41:09 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:49:45 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,12 @@ int	round_to_top(double n)
 {
 	int	res;
 	int	ret;
-	
-	res = ((int) ((double)(n * 10))) % 10;
+
+	res = ((int)((double)(n * 10))) % 10;
 	ret = ((int)((float) n));
 	if (res)
 	{
-		printf("tamo aqui %d\n", (int) (n));
-		return (((int) (n)) + 1);
+		return (((int)(n)) + 1);
 	}
 	return (n);
 }

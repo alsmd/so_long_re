@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:16:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 22:41:19 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:51:17 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,10 @@ int		*to_array(int x, int y, int w, int h);
 	@brief	if float number has something after dotte it will be rouded to
 			the next int number and returned
 */
-int	round_to_top(double n);
+int		round_to_top(double n);
 
 double	my_abs(double n);
+
+void	ft_bzero(void *s, size_t n);
 
 #endif

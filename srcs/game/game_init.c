@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 00:16:07 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:18:08 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	update_frame(t_game *game)
 {
-
 	render_map(game);
 	render_player(game);
 	mlx_put_image_to_window(game->vars.mlx, game->vars.win, \
@@ -24,9 +23,18 @@ int	update_frame(t_game *game)
 
 static void	close_game(t_game *game)
 {
-	mlx_destroy_window(game->vars.mlx, game->vars.win);
+	mlx_clear_window(game->vars.mlx, game->vars.win);
+	mlx_loop_end(game->vars.mlx);
 	free(game->map.array[0]);
-	exit(1);
+	free(game->map.array);
+	free_player_walk_sprites(game);
+	mlx_destroy_image(game->vars.mlx, game->map.render_map.img);
+	mlx_destroy_image(game->vars.mlx, game->resources.wall.img);
+	mlx_destroy_image(game->vars.mlx, game->resources.floor.img);
+	mlx_destroy_window(game->vars.mlx, game->vars.win);
+	mlx_destroy_display(game->vars.mlx);
+	free(game->vars.mlx);
+	exit(0);
 }
 
 int	keypress(int keycode, t_game *game)
@@ -36,7 +44,6 @@ int	keypress(int keycode, t_game *game)
 	player_move(game, keycode);
 	return (1);
 }
-
 
 int	game_init(t_game *game)
 {

@@ -6,20 +6,20 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 01:13:00 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:50:43 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	player_is_on_screen(t_game *game, int x_offset , int y_offset)
+static int	player_is_on_screen(t_game *game, int x_offset, int y_offset)
 {
 	int	y;
 	int	x;
 
 	y = 0;
 	x = 0;
-	while (y  < game->height)
+	while (y < game->height)
 	{
 		while (x < game->width)
 		{
@@ -32,7 +32,6 @@ static int	player_is_on_screen(t_game *game, int x_offset , int y_offset)
 		x = 0;
 		y++;
 	}
-
 	return (0);
 }
 
@@ -61,8 +60,7 @@ static int	set_cam(t_game *game)
 	return (0);
 }
 
-
-int	game_config(t_game *game)
+static void	set_game_size(t_game *game)
 {
 	if (game->map.width > 15)
 		game->width = 15;
@@ -72,11 +70,16 @@ int	game_config(t_game *game)
 		game->height = 15;
 	else
 		game->height = game->map.height;
+}
+
+int	game_config(t_game *game)
+{
+	set_game_size(game);
 	game->vars.mlx = mlx_init();
 	if (game->vars.mlx == 0)
 		return (SERVER_ERROR);
 	game->vars.win = mlx_new_window(game->vars.mlx, game->width * BLOCK_SIZE, \
-			game->height * BLOCK_SIZE, "teste");
+			game->height * BLOCK_SIZE, "Pokemon");
 	if (game->vars.win == 0)
 		return (SERVER_ERROR);
 	set_cam(game);

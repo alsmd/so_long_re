@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 00:22:51 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:47:32 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-void	get_player_cord(t_game *game)
+void	set_player_cord(t_game *game)
 {
 	int	y;
 	int	x;
@@ -61,4 +61,27 @@ void	player_walk_sprites(t_game *game)
 	load_img(&sprite->right[1], "./assets/imgs/player/right_1.xpm", game);
 	load_img(&sprite->right[2], "./assets/imgs/player/right_2.xpm", game);
 	load_img(&sprite->right[3], "./assets/imgs/player/right_3.xpm", game);
+}
+
+void	free_player_walk_sprites(t_game *game)
+{
+	t_sprite	*sprite;
+
+	sprite = &game->player.sprite;
+	mlx_destroy_image(game->vars.mlx, sprite->down[0].img);
+	mlx_destroy_image(game->vars.mlx, sprite->down[1].img);
+	mlx_destroy_image(game->vars.mlx, sprite->down[2].img);
+	mlx_destroy_image(game->vars.mlx, sprite->down[3].img);
+	mlx_destroy_image(game->vars.mlx, sprite->up[0].img);
+	mlx_destroy_image(game->vars.mlx, sprite->up[1].img);
+	mlx_destroy_image(game->vars.mlx, sprite->up[2].img);
+	mlx_destroy_image(game->vars.mlx, sprite->up[3].img);
+	mlx_destroy_image(game->vars.mlx, sprite->left[0].img);
+	mlx_destroy_image(game->vars.mlx, sprite->left[1].img);
+	mlx_destroy_image(game->vars.mlx, sprite->left[2].img);
+	mlx_destroy_image(game->vars.mlx, sprite->left[3].img);
+	mlx_destroy_image(game->vars.mlx, sprite->right[0].img);
+	mlx_destroy_image(game->vars.mlx, sprite->right[1].img);
+	mlx_destroy_image(game->vars.mlx, sprite->right[2].img);
+	mlx_destroy_image(game->vars.mlx, sprite->right[3].img);
 }
