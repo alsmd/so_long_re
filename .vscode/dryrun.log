@@ -2,7 +2,6 @@ make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/coder/Desktop/so_long_re'
 gcc -g -Imlx -Ibass -c srcs/main.c -o srcs/main.o
 gcc -g -Imlx -Ibass -c srcs/message.c -o srcs/message.o
- 
 gcc -g -Imlx -Ibass -c srcs/map/check.c -o srcs/map/check.o
 gcc -g -Imlx -Ibass -c srcs/map/manipulation.c -o srcs/map/manipulation.o
 gcc -g -Imlx -Ibass -c srcs/map/draw.c -o srcs/map/draw.o

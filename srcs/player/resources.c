@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 21:42:03 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 00:22:51 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,9 @@ void	get_player_cord(t_game *game)
 {
 	int	y;
 	int	x;
-	int	index;
 
 	y = 0;
 	x = 0;
-	index = 1;
-	game->player.f_x = 0;
-	game->player.f_y = 0;
 	while (y < game->map.height)
 	{
 		while (x < game->map.width)
@@ -31,17 +27,8 @@ void	get_player_cord(t_game *game)
 			{
 				game->player.x = x;
 				game->player.y = y;
-				while (index <= x)
-				{
-					game->player.f_x += 1.0f;
-					index++;
-				}
-				index = 1;
-				while (index <= y)
-				{
-					game->player.f_y += 1.0f;
-					index++;
-				}
+				game->player.f_x = x;
+				game->player.f_y = y;
 			}
 			x++;
 		}

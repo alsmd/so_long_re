@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:31:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/01 21:14:33 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 00:12:29 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static int	check_map_elements(t_game *game, char *map)
 	int	y;
 	int	*check;
 	int	x;
+	int	pass;
 
 	y = 0;
 	x = 0;
@@ -67,7 +68,9 @@ static int	check_map_elements(t_game *game, char *map)
 		x = 0;
 		y++;
 	}
-	return (check[0] & check[1] & check[2]);
+	pass = check[0] & check[1] & check[2];
+	free(check);
+	return (pass);
 }
 
 static int	check_map_format(t_game *game, int fd)

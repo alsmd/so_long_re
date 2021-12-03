@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 23:36:52 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 01:08:36 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	check_collision_y(t_game *game, int move)
 			x_2 = x_1 + 1;
 		else
 			x_2 = x_1 - 1;
-		printf("x_1 = %d, x_2 = %d\n", x_1, x_2);
-		fflush(stdout);
 		if (game->map.array[y][x_1] == WALL || game->map.array[y][x_2] == WALL)
 			return (1);
 	}
@@ -73,13 +71,11 @@ int	check_collision_x(t_game *game, int move)
 			y_2 = y_1 + 1;
 		else
 			y_2 = y_1 - 1;
-		fflush(stdout);
 		if (game->map.array[y_1][x] == WALL || game->map.array[y_2][x] == WALL)
 			return (1);
 	}
 	else
 	{
-		printf("here\n");
 		if (game->map.array[game->player.y][x] == WALL)
 			return (1);
 	}

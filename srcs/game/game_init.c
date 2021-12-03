@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 21:42:33 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 00:16:07 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,18 @@ int	update_frame(t_game *game)
 	return (1);
 }
 
+static void	close_game(t_game *game)
+{
+	mlx_destroy_window(game->vars.mlx, game->vars.win);
+	free(game->map.array[0]);
+	exit(1);
+}
+
 int	keypress(int keycode, t_game *game)
 {
-	/* static double t = 4;
-	int	n;
-
-	if (keycode == RIGHT)
-		t += game->vel;
-	if (keycode == LEFT)
-		t -= game->vel;
-	n = (int) t;
-	printf("numero em double: %f\n", t);
-	printf("numero em decimal: %d\n", n);
-	printf("casa decimal %d\n", (int) ((t * 10)) % 10); */
+	if (keycode == ESQ)
+		close_game(game);
 	player_move(game, keycode);
-/* 	if (keycode == RIGHT)
-		game->player.f_x += game->vel;
-	if (keycode == LEFT)
-		game->player.f_x -= game->vel;
-	printf("float x: %f, float y: %f\n", game->player.f_x, game->player.f_y);
-	printf("int x: %d, int y: %d\n", (int) game->player.f_x, (int) game->player.f_y); */
 	return (1);
 }
 

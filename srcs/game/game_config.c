@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/02 20:55:10 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/03 01:13:00 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static int	player_is_on_screen(t_game *game, int x_offset , int y_offset)
 		while (x < game->width)
 		{
 			if (game->map.array[y + y_offset][x + x_offset] == PLAYER)
+			{
 				return (1);
+			}
 			x++;
 		}
 		x = 0;
@@ -41,9 +43,9 @@ static int	set_cam(t_game *game)
 
 	y = 0;
 	x = 0;
-	while (y < game->map.height - game->height)
+	while (y <= game->map.height - game->height)
 	{
-		while (x < game->map.width - game->width)
+		while (x <= game->map.width - game->width)
 		{
 			if (player_is_on_screen(game, x, y))
 			{
@@ -79,6 +81,6 @@ int	game_config(t_game *game)
 		return (SERVER_ERROR);
 	set_cam(game);
 	load_resources(game);
-	game->vel = 0.1f;
+	game->vel = 0.125f;
 	return (0);
 }
