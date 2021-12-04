@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:15:47 by flavio            #+#    #+#             */
-/*   Updated: 2021/12/02 01:40:16 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/04 15:17:38 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	put_pixel(t_data *data, int x, int y, int color)
 
 	bytes = (data->bits_per_pixel / 8);
 	dest = data->addr + (y * data->line_length + x * bytes);
-	*(unsigned int *)dest = color;
+	if ((x >= 0 && x <= data->w) && (y >= 0 && y <= data->h))
+		*(unsigned int *)dest = color;
 }
 
 int	get_pixel(t_data *data, int x, int y)

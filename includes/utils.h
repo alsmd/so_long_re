@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:16:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 17:51:17 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/04 23:52:49 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	copy_img_to(t_data *dest, t_data *src, int info[4]);
 	@brief	Returns a string that is the concatenation of s1 and s2,
 			then use free() on s1 and s2
 */
-
 char	*ft_strjoin(char *s1, char *s2);
 
 /*
@@ -111,5 +110,7 @@ int		round_to_top(double n);
 double	my_abs(double n);
 
 void	ft_bzero(void *s, size_t n);
+
+char	*ft_strdup(const char *s);
 
 #endif

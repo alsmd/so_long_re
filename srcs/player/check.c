@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 22:24:10 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/04 17:37:06 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ static int	check_half_step_x(t_game *game, int y)
 
 int	check_collision_y(t_game *game, int move)
 {
-	int	y;
-	int	half_step_y;
-	int	half_step_x;
-	int	x_y_global[2];
+	int		y;
+	int		half_step_y;
+	int		half_step_x;
+	double	y_x_global[2];
 
-	x_y_global[0] = game->player.f_y + game->map.desloc_y;
-	x_y_global[1] = game->player.f_x + game->map.desloc_x;
-	half_step_y = !(aprox(x_y_global[0], game->player.y));
-	half_step_x = !(aprox(x_y_global[1], game->player.x));
+	y_x_global[0] = game->player.f_y + game->map.desloc_y;
+	y_x_global[1] = game->player.f_x + game->map.desloc_x;
+	half_step_y = !(aprox(y_x_global[0], game->player.y));
+	half_step_x = !(aprox(y_x_global[1], game->player.x));
 	if (half_step_y)
 		return (0);
 	if (move == UP)
@@ -61,7 +61,8 @@ static int	check_half_step_y(t_game *game, int x)
 	int	y_2;
 
 	y_1 = game->player.y;
-	if (game->player.f_y + game->map.desloc_y > game->player.y)
+	fflush(stdout);
+	if (game->player.f_y + game->map.desloc_y >= game->player.y)
 		y_2 = y_1 + 1;
 	else
 		y_2 = y_1 - 1;
@@ -72,15 +73,15 @@ static int	check_half_step_y(t_game *game, int x)
 
 int	check_collision_x(t_game *game, int move)
 {
-	int	x;
-	int	half_step_y;
-	int	half_step_x;
-	int	x_y_global[2];
+	int		x;
+	int		half_step_y;
+	int		half_step_x;
+	double	y_x_global[2];
 
-	x_y_global[0] = game->player.f_y + game->map.desloc_y;
-	x_y_global[1] = game->player.f_x + game->map.desloc_x;
-	half_step_y = !(aprox(x_y_global[0], game->player.y));
-	half_step_x = !(aprox(x_y_global[1], game->player.x));
+	y_x_global[0] = game->player.f_y + game->map.desloc_y;
+	y_x_global[1] = game->player.f_x + game->map.desloc_x;
+	half_step_y = !(aprox(y_x_global[0], game->player.y));
+	half_step_x = !(aprox(y_x_global[1], game->player.x));
 	if (half_step_x)
 		return (0);
 	if (move == LEFT)

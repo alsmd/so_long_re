@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 22:26:05 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/04 16:07:43 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static void	change_frame(t_game *game, int move)
+void	change_frame(t_game *game, int move)
 {
 	game->player.delay += 1;
 	if (game->player.walk_frame < 3)
@@ -84,7 +84,6 @@ void	player_move(t_game *game, int move)
 	int		direction;
 	double	next_block;
 
-	change_frame(game, move);
 	if ((move == LEFT || move == RIGHT) && !check_collision_x(game, move))
 	{
 		direction = move_x(game, move);

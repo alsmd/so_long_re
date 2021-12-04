@@ -6,12 +6,15 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:43:02 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 00:20:02 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+# define POKEMON_AMOUNT 1
+# define FALSE 0
+# define TRUE 1
 
 typedef struct s_data
 {
@@ -20,6 +23,8 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		w;
+	int		h;
 }	t_data;
 
 typedef struct s_vars
@@ -51,30 +56,47 @@ typedef struct s_sprite
 typedef struct s_player
 {
 	t_sprite		sprite;
+	t_data			getting_poke[9];
 	int				x;
 	int				y;
-	long double		f_x;
-	long double		f_y;
-	int				walk_frame;
+	double			f_x;
+	double			f_y;
 	int				direction;
+	int				walk_frame;
 	int				delay;
+	int				walk_frame_animation;
+	int				delay_animation;
 }	t_player;
+
+typedef struct s_pokemon
+{
+	int					id;
+	int					f_x;
+	int					f_y;
+	int					walk_frame;
+	int					direction;
+	int					delay;
+	struct s_pokemon	*next;
+}	t_pokemon;
 
 typedef struct s_resources
 {
-	t_data	wall;
-	t_data	floor;
+	t_data		wall;
+	t_data		floor;
+	t_sprite	pokemon_sprites[POKEMON_AMOUNT];
 }	t_resources;
 
 typedef struct s_game
 {
+	t_pokemon	*pokemons;
 	t_vars		vars;
 	t_map		map;
 	t_resources	resources;
 	t_player	player;
+	int			getting_poke;
 	int			width;
 	int			height;
-	long double	vel;
+	double		vel;
 }	t_game;
 
 enum e_status

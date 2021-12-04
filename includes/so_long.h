@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 22:19:57 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 00:41:50 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ void	player_walk_sprites(t_game *game);
 */
 void	free_player_walk_sprites(t_game *game);
 
+void	change_frame(t_game *game, int move);
+
 /*
 	@brief	set game->player.x/y correponding to player's position
 */
@@ -134,4 +136,33 @@ void	player_move(t_game *game, int move);
 */
 int		check_collision_y(t_game *game, int move);
 int		check_collision_x(t_game *game, int move);
+
+//POKEMON
+
+/*
+	@brief	Load pokemon's sprites
+*/
+void	pokemon_sprites(t_game *game);
+
+/*
+	@brief	Frees pokemon's sprites
+*/
+void	free_pokemon_sprites(t_game *game);
+
+/*
+	@brief Create pokemons objects corresponding to the items present inside
+			the map.
+*/
+void	create_pokemons(t_game *game);
+
+/*
+	@brief If pokemon is on screen it will be draw
+*/
+void	render_pokemon(t_game *game);
+
+/*
+	@brief Check if player is in collition with a pokemon
+*/
+int		check_poke_collition(t_game *game);
+
 #endif
