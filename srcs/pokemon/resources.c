@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 00:30:20 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 19:50:28 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,39 +19,6 @@ static void	load_free(t_data *img, char *path1, char *path2, t_game *game)
 	path = ft_strjoin(path1, ft_strdup(path2));
 	load_img(img, path, game);
 	free(path);
-}
-
-static void	free_capturing_poke_animation(t_game *game)
-{
-	int		index;
-
-	index = 0;
-	while (index < 9)
-	{
-		mlx_destroy_image(game->vars.mlx, game->player.getting_poke[index].img);
-		index++;
-	}
-}
-
-static void	capturing_poke_animation(t_game *game)
-{
-	t_data	*frame;
-	char	*src;
-	char	*name;
-	char	*full_src;
-	int		index;
-
-	index = 0;
-	while (index < 9)
-	{
-		src = ft_strdup("./assets/animation/capturing_poke/");
-		name = ft_strjoin(ft_itoa(index), ft_strdup(".xpm"));
-		frame = &game->player.getting_poke[index];
-		full_src = ft_strjoin(src, name);
-		load_img(frame, full_src, game);
-		free(full_src);
-		index++;
-	}
 }
 
 void	pokemon_sprites(t_game *game)
@@ -78,7 +45,6 @@ void	pokemon_sprites(t_game *game)
 		free(src_pk);
 		index++;
 	}
-	capturing_poke_animation(game);
 }
 
 void	free_pokemon_sprites(t_game *game)
@@ -101,11 +67,28 @@ void	free_pokemon_sprites(t_game *game)
 		mlx_destroy_image(game->vars.mlx, sprite->right[1].img);
 		index++;
 	}
-	free_capturing_poke_animation(game);
 	while (game->pokemons)
 	{
 		tmp = game->pokemons->next;
 		free(game->pokemons);
 		game->pokemons = tmp;
 	}
+}
+
+void	new_pokemon(t_game *game, int x, int y)
+{
+	t_pokemon	*begin;
+	t_pokemon	*new_pokemon;
+
+	new_pokemon = (t_pokemon *) ft_calloc(1, sizeof(t_pokemon));
+	new_pokemon->id = (x * y) % POKEMON_AMOUNT;
+	new_pokemon->f_x = x;
+	new_pokemon->f_y = y;
+	begin = game->pokemons;
+	while (begin && begin->next)
+		begin = begin->next;
+	if (!begin)
+		game->pokemons = new_pokemon;
+	else
+		begin->next = new_pokemon;
 }

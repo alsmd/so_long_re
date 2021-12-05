@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:52:31 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:45:16 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,46 @@ void	set_player_cord(t_game *game)
 	}
 }
 
+static void	free_animations(t_game *game)
+{
+	int		index;
+
+	index = 0;
+	while (index < 9)
+	{
+		mlx_destroy_image(game->vars.mlx, game->player.getting_poke[index].img);
+		index++;
+	}
+	mlx_destroy_image(game->vars.mlx, game->player.victory[0].img);
+	mlx_destroy_image(game->vars.mlx, game->player.victory[1].img);
+	mlx_destroy_image(game->vars.mlx, game->player.victory[2].img);
+}
+
+static void	animations(t_game *game)
+{
+	t_data	*frame;
+	char	*src;
+	char	*name;
+	char	*full_src;
+	int		index;
+
+	index = 0;
+	while (index < 9)
+	{
+		src = ft_strdup("./assets/animation/capturing_poke/");
+		name = ft_strjoin(ft_itoa(index), ft_strdup(".xpm"));
+		frame = &game->player.getting_poke[index];
+		full_src = ft_strjoin(src, name);
+		load_img(frame, full_src, game);
+		free(full_src);
+		index++;
+	}
+	frame = game->player.victory;
+	load_img(&frame[0], "./assets/animation/victory/0.xpm", game);
+	load_img(&frame[1], "./assets/animation/victory/1.xpm", game);
+	load_img(&frame[2], "./assets/animation/victory/2.xpm", game);
+}
+
 void	player_walk_sprites(t_game *game)
 {
 	t_sprite	*sprite;
@@ -61,6 +101,7 @@ void	player_walk_sprites(t_game *game)
 	load_img(&sprite->right[1], "./assets/imgs/player/right_1.xpm", game);
 	load_img(&sprite->right[2], "./assets/imgs/player/right_2.xpm", game);
 	load_img(&sprite->right[3], "./assets/imgs/player/right_3.xpm", game);
+	animations(game);
 }
 
 void	free_player_walk_sprites(t_game *game)
@@ -84,4 +125,5 @@ void	free_player_walk_sprites(t_game *game)
 	mlx_destroy_image(game->vars.mlx, sprite->right[1].img);
 	mlx_destroy_image(game->vars.mlx, sprite->right[2].img);
 	mlx_destroy_image(game->vars.mlx, sprite->right[3].img);
+	free_animations(game);
 }

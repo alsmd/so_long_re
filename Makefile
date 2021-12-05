@@ -1,6 +1,7 @@
 SRCS =	./srcs/main.c ./srcs/message.c \
 		./srcs/map/check.c ./srcs/map/utils.c ./srcs/map/draw.c \
-		./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/game/utils.c\
+		./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/game/utils.c \
+		./srcs/game/draw.c ./srcs/game/check.c \
 		./srcs/player/resources.c ./srcs/player/draw.c ./srcs/player/action.c ./srcs/player/check.c \
 		./srcs/pokemon/resources.c ./srcs/pokemon/draw.c ./srcs/pokemon/check.c ./srcs/pokemon/action.c
 

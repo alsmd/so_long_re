@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/04 23:27:23 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:26:12 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,10 @@ int	game_config(t_game *game)
 			game->height * BLOCK_SIZE, "Pokemon");
 	if (game->vars.win == 0)
 		return (SERVER_ERROR);
-	game->pokemons = 0;
-	game->getting_poke = 0;
 	set_cam(game);
 	load_resources(game);
 	set_player_cord(game);
-	create_pokemons(game);
+	create_elements(game);
 	draw_fullmap(game);
 	game->vel = 0.25f;
 	return (0);

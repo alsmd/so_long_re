@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 00:33:52 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:58:44 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	update_frame(t_game *game)
 {
 	render_map(game);
 	render_pokemon(game);
+	render_door(game);
 	render_player(game);
 	mlx_put_image_to_window(game->vars.mlx, game->vars.win, \
 		game->map.render_map.img, 0, 0);
@@ -30,10 +31,7 @@ static void	close_game(t_game *game)
 	free(game->map.array);
 	free_player_walk_sprites(game);
 	free_pokemon_sprites(game);
-	mlx_destroy_image(game->vars.mlx, game->map.render_map.img);
-	mlx_destroy_image(game->vars.mlx, game->map.full_map.img);
-	mlx_destroy_image(game->vars.mlx, game->resources.wall.img);
-	mlx_destroy_image(game->vars.mlx, game->resources.floor.img);
+	free_resources(game);
 	mlx_destroy_window(game->vars.mlx, game->vars.win);
 	mlx_destroy_display(game->vars.mlx);
 	free(game->vars.mlx);
@@ -44,6 +42,8 @@ int	keypress(int kc, t_game *game)
 {
 	if (kc == ESQ)
 		close_game(game);
+	if (game->win == TRUE)
+		return (1);
 	if (game->getting_poke == FALSE)
 	{
 		if (kc == DOWN || kc == UP || kc == LEFT || kc == RIGHT)
@@ -56,6 +56,8 @@ int	keypress(int kc, t_game *game)
 			game->player.delay_animation = 0;
 		}
 	}
+	if (game->pokemons == 0)
+		check_door_collition(game);
 	return (1);
 }
 

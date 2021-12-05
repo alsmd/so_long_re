@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 00:41:50 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:00:00 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,27 @@ int		game_config(t_game *game);
 int		game_init(t_game *game);
 
 /*
+	@brief Create pokemons objects corresponding to the items present inside
+			the map or door object corresponding to the doors inside the map.
+*/
+void	create_elements(t_game *game);
+
+/*
+	@brief	Render door if it is inside visible screen.
+*/
+void	render_door(t_game *game);
+
+/*
+	@brief	Check door collition
+*/
+void	check_door_collition(t_game *game);
+
+/*
+	@brief	Free game resources.
+*/
+void	free_resources(t_game *game);
+
+/*
 	@brief Checks if a and b have an aproximated value
 */
 int		aprox(double a, double b);
@@ -150,10 +171,9 @@ void	pokemon_sprites(t_game *game);
 void	free_pokemon_sprites(t_game *game);
 
 /*
-	@brief Create pokemons objects corresponding to the items present inside
-			the map.
+	@brief Add a new pokemon to the list;
 */
-void	create_pokemons(t_game *game);
+void	new_pokemon(t_game *game, int x, int y);
 
 /*
 	@brief If pokemon is on screen it will be draw

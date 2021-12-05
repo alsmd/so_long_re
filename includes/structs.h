@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 00:20:02 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:42:29 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-# define POKEMON_AMOUNT 1
+# define POKEMON_AMOUNT 4
 # define FALSE 0
 # define TRUE 1
 
@@ -57,6 +57,7 @@ typedef struct s_player
 {
 	t_sprite		sprite;
 	t_data			getting_poke[9];
+	t_data			victory[3];
 	int				x;
 	int				y;
 	double			f_x;
@@ -71,18 +72,26 @@ typedef struct s_player
 typedef struct s_pokemon
 {
 	int					id;
-	int					f_x;
-	int					f_y;
+	double				f_x;
+	double				f_y;
 	int					walk_frame;
 	int					direction;
 	int					delay;
 	struct s_pokemon	*next;
 }	t_pokemon;
 
+typedef struct s_door
+{
+	double			f_x;
+	double			f_y;
+	struct s_door	*next;
+}	t_door;
+
 typedef struct s_resources
 {
 	t_data		wall;
 	t_data		floor;
+	t_data		door[2];
 	t_sprite	pokemon_sprites[POKEMON_AMOUNT];
 }	t_resources;
 
@@ -93,9 +102,11 @@ typedef struct s_game
 	t_map		map;
 	t_resources	resources;
 	t_player	player;
+	t_door		*doors;
 	int			getting_poke;
 	int			width;
 	int			height;
+	int			win;
 	double		vel;
 }	t_game;
 
