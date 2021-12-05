@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:40:21 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:22:54 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 static void	draw_block(t_game *game, int x, int y)
 {
-	char	block;
+	char		block;
+	t_data		*img;
+	static int	number;
 
 	block = game->map.array[y][x];
 	x *= BLOCK_SIZE;
@@ -26,9 +28,16 @@ static void	draw_block(t_game *game, int x, int y)
 	}
 	else
 	{
-		copy_img_to(&game->map.full_map, &game->resources.floor, \
+		if (number % 21 == 0)
+			img = &game->resources.floor[1];
+		else if (number % 43 == 0)
+			img = &game->resources.floor[2];
+		else
+			img = &game->resources.floor[0];
+		copy_img_to(&game->map.full_map, img, \
 				to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 	}
+	number++;
 }
 
 void	render_map(t_game *game)

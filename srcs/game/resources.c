@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 19:49:42 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:43:09 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	load_resources(t_game *game)
 	player_walk_sprites(game);
 	pokemon_sprites(game);
 	load_img(&game->resources.wall, "./assets/imgs/sceane/wall.xpm", game);
-	load_img(&game->resources.floor, "./assets/imgs/sceane/floor.xpm", game);
+	load_img(&game->resources.floor[0], "./assets/imgs/sceane/floor_0.xpm", game);
+	load_img(&game->resources.floor[1], "./assets/imgs/sceane/floor_1.xpm", game);
+	load_img(&game->resources.floor[2], "./assets/imgs/sceane/floor_2.xpm", game);
 	load_img(&game->resources.door[0], "./assets/imgs/sceane/door_close.xpm", \
 			game);
 	load_img(&game->resources.door[1], "./assets/imgs/sceane/door_open.xpm", \
@@ -86,7 +88,9 @@ void	free_resources(t_game *game)
 	mlx_destroy_image(game->vars.mlx, game->map.render_map.img);
 	mlx_destroy_image(game->vars.mlx, game->map.full_map.img);
 	mlx_destroy_image(game->vars.mlx, game->resources.wall.img);
-	mlx_destroy_image(game->vars.mlx, game->resources.floor.img);
+	mlx_destroy_image(game->vars.mlx, game->resources.floor[0].img);
+	mlx_destroy_image(game->vars.mlx, game->resources.floor[1].img);
+	mlx_destroy_image(game->vars.mlx, game->resources.floor[2].img);
 	mlx_destroy_image(game->vars.mlx, game->resources.door[0].img);
 	mlx_destroy_image(game->vars.mlx, game->resources.door[1].img);
 }

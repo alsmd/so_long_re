@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 20:42:29 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:14:29 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct s_door
 typedef struct s_resources
 {
 	t_data		wall;
-	t_data		floor;
+	t_data		floor[3];
 	t_data		door[2];
 	t_sprite	pokemon_sprites[POKEMON_AMOUNT];
 }	t_resources;
