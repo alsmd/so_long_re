@@ -10,7 +10,8 @@ OBJS = $(SRCS:.c=.o)
 
 UTILS = ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c \
 		./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/ft_strdup.c \
-		./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c
+		./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c \
+		./srcs/utils/color.c
 
 
 OBJS_UTILS = $(UTILS:.c=.o)

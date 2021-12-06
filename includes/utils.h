@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:16:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/04 23:52:49 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 02:28:44 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,16 @@ double	my_abs(double n);
 void	ft_bzero(void *s, size_t n);
 
 char	*ft_strdup(const char *s);
+
+/*
+	@brief	Returns a color with a quantity of red green and blue
+*/
+int	create_rgb(int r, int g, int b);
+
+/*
+	@brief	Darkens a color using qnt_shade, qnt_shade can be a number
+			between 0 and 1. 0 to the darkest and 1 to normal.
+*/
+int	get_color_shade(int color, double qnt_shade);
 
 #endif
