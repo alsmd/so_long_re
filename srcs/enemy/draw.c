@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 18:42:49 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:53:04 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	darken_range_left(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
+	x += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
@@ -83,6 +84,7 @@ static int	darken_range_up(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
+	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (y > original_y - (game->enemy_range * BLOCK_SIZE))
@@ -134,33 +136,6 @@ static int	darken_range_down(t_game *game, t_enemy *enemy, double x, double y)
 		y++;
 	}
 	return (0);
-}
-
-static void	darken_range(t_game *game, int x, int y)
-{
-	int	original_x;
-	int	original_y;
-	int	color;
-	int	color_darker;
-	
-	y += BLOCK_SIZE;
-	original_x = x;
-	original_y = y;
-	while (y < original_y + (game->enemy_range * BLOCK_SIZE))
-	{
-		while (x < original_x + BLOCK_SIZE)
-		{
-			if (x < game->map.width * BLOCK_SIZE)
-			{
-				color = get_pixel(&game->map.render_map, x, y);
-				color_darker = get_color_shade_red(color, 0.7);
-				put_pixel(&game->map.render_map, x, y, color_darker);
-			}
-			x++;
-		}
-		x = original_x;
-		y++;
-	}
 }
 
 void	render_enemy(t_game *game)

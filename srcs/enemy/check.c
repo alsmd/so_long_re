@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 18:50:54 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:58:04 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	has_collition_left(t_game *game, t_enemy *enemy, double x, double y)
 	
 	original_x = x;
 	original_y = y;
+	x += BLOCK_SIZE;
 	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
 	{
 		while (y < original_y + BLOCK_SIZE)
@@ -29,8 +30,8 @@ static int	has_collition_left(t_game *game, t_enemy *enemy, double x, double y)
 					y >= 0 && y < game->map.height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
-				if (aprox(x, game->player.f_x * BLOCK_SIZE) && \
-					aprox(y, game->player.f_y * BLOCK_SIZE))
+				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
+					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
 					return (1);
 			}
 			y++;
@@ -58,8 +59,8 @@ static int	has_collition_right(t_game *game, t_enemy *enemy, double x, double y)
 					y >= 0 && y < game->map.height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
-				if (aprox(x, game->player.f_x * BLOCK_SIZE) && \
-					aprox(y, game->player.f_y * BLOCK_SIZE))
+				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
+					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
 					return (1);
 			}
 			y++;
@@ -77,6 +78,7 @@ static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 	double	original_y;
 	int		is_on_screen;
 	
+	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (y > original_y - (game->enemy_range * BLOCK_SIZE))
@@ -87,8 +89,8 @@ static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 					y >= 0 && y < game->map.height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
-				if (aprox(x, game->player.f_x * BLOCK_SIZE) && \
-					aprox(y, game->player.f_y * BLOCK_SIZE))
+				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
+					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
 					return (1);
 			}
 			x++;
@@ -116,8 +118,9 @@ static int	has_collition_down(t_game *game, t_enemy *enemy, double x, double y)
 					y >= 0 && y < game->map.height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
-				if (aprox(x, game->player.f_x * BLOCK_SIZE) && \
-					aprox(y, game->player.f_y * BLOCK_SIZE))
+				 
+				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
+					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
 					return (1);
 			}
 			x++;
@@ -147,7 +150,7 @@ int	check_enemy_collition(t_game *game)
 		if (direction == UP && has_collition_up(game, enemy, x, y))
 			game->lost = 1;
 		if (direction == LEFT && has_collition_left(game, enemy, x, y))
-				game->lost = 1;
+			game->lost = 1;
 		if (direction == RIGHT && has_collition_right(game, enemy, x, y))
 			game->lost = 1;
 		enemy = enemy->next;
