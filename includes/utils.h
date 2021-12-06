@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:16:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 02:28:44 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:35:15 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,17 @@ int	create_rgb(int r, int g, int b);
 			between 0 and 1. 0 to the darkest and 1 to normal.
 */
 int	get_color_shade(int color, double qnt_shade);
+
+
+/*
+	@brief	Redden a color using qnt_shade, qnt_shade can be a number
+			between 0 and 1. 0 to the Redest and 1 to normal.
+*/
+int	get_color_shade_red(int color, double qnt_shade);
+
+/*
+	@brief	Generate a random number.
+*/
+unsigned my_rand();
 
 #endif

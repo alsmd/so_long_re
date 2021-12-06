@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 01:25:48 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:50:08 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,10 @@ typedef struct s_enemy
 {
 	double			f_x;
 	double			f_y;
+	int				x;
+	int				y;
 	int				walk_frame;
+	int				steps;
 	int				direction;
 	int				delay;
 	struct s_enemy	*next;
@@ -116,10 +119,13 @@ typedef struct s_game
 	t_player	player;
 	t_door		*doors;
 	int			getting_poke;
+	int			enemy_range;
 	int			width;
+	int			lost;
 	int			height;
 	int			win;
 	double		vel;
+	double		enemy_vel;
 }	t_game;
 
 enum e_status

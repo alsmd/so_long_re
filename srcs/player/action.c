@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/04 16:07:43 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:51:47 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,5 @@ void	player_move(t_game *game, int move)
 		}
 	}
 	game->map.array[game->player.y][game->player.x] = PLAYER;
+	check_enemy_collition(game);
 }

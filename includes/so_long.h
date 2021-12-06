@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 01:43:36 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:51:04 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,12 @@ int		game_config(t_game *game);
 	@brief	Init our game.
 */
 int		game_init(t_game *game);
+
+/*
+	@brief	Check if coordenates x and y is on screen.
+			x and y must  not be in pixels but in blocks instead
+*/
+int		is_on_screen(t_game *game, double x, double y);
 
 /*
 	@brief Create pokemons objects corresponding to the items present inside
@@ -205,5 +211,26 @@ void	create_enemies(t_game *game);
 	@brief Render enemies.
 */
 void	render_enemy(t_game *game);
+
+/*
+	@brief Check Enemy collition with player.
+*/
+int	check_enemy_collition(t_game *game);
+
+/*
+	@brief Move an enemy to a specific direction.
+*/
+void	enemy_move(t_game *game, int move, t_enemy *enemy);
+
+/*
+	@brief Check if enemy can make a moviment x or y.
+*/
+int	enemy_collision_x(t_game *game, int move, t_enemy *enemy);
+int	enemy_collision_y(t_game *game, int move, t_enemy *enemy);
+
+/*
+	@brief Move all the enemies present inside the game.
+*/
+void	move_enemies(t_game *game);
 
 #endif

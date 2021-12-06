@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 19:50:28 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:44:41 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	new_pokemon(t_game *game, int x, int y)
 	t_pokemon	*new_pokemon;
 
 	new_pokemon = (t_pokemon *) ft_calloc(1, sizeof(t_pokemon));
-	new_pokemon->id = (x * y) % POKEMON_AMOUNT;
+	new_pokemon->id = (my_rand()) % POKEMON_AMOUNT;
 	new_pokemon->f_x = x;
 	new_pokemon->f_y = y;
 	begin = game->pokemons;

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 01:18:18 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 01:40:08 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:49:28 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ static void	new_enemy(t_game *game, int x, int y)
 	new_enemy = (t_enemy *) ft_calloc(1, sizeof(t_enemy));
 	new_enemy->f_x = x;
 	new_enemy->f_y = y;
+	new_enemy->x = x;
+	new_enemy->y = y;
+	new_enemy->direction = DOWN;
 	begin = game->enemies;
 	while (begin && begin->next)
 		begin = begin->next;
@@ -78,7 +81,6 @@ void	free_enemy_sprites(t_game *game)
 
 	begin = game->enemies;
 	sprite = &game->resources.enemy;
-	printf("%p\n", sprite->down[0].img);
 	mlx_destroy_image(game->vars.mlx, sprite->down[0].img);
 	mlx_destroy_image(game->vars.mlx, sprite->down[1].img);
 	mlx_destroy_image(game->vars.mlx, sprite->down[2].img);

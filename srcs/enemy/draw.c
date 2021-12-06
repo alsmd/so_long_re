@@ -6,26 +6,133 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 02:38:52 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:42:49 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	is_on_screen(t_game *game, double x, double y)
+static int	darken_range_left(t_game *game, t_enemy *enemy, double x, double y)
 {
-	int		visible_x;
-	int		visible_y;
-	double	pos;
+	
+	double	original_x;
+	double	original_y;
+	int		is_on_screen;
+	int		color;
+	int		color_darker;
+	
+	original_x = x;
+	original_y = y;
+	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
+	{
+		while (y < original_y + BLOCK_SIZE)
+		{
+			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			if (is_on_screen)
+			{
+				color = get_pixel(&game->map.render_map, x, y);
+				color_darker = get_color_shade_red(color, 0.7);
+				put_pixel(&game->map.render_map, x, y, color_darker);
+			}
+			y++;
+		}
+		y = original_y;
+		x--;
+	}
+	return (0);
+}
 
-	pos = x * BLOCK_SIZE + BLOCK_SIZE;
-	visible_x = x < game->map.desloc_x + game->width;
-	visible_x = (visible_x && (pos > (game->map.desloc_x * BLOCK_SIZE)));
-	pos = y * BLOCK_SIZE + BLOCK_SIZE;
-	visible_y = y < game->map.desloc_y + game->height;
-	visible_y = (visible_y && (pos > (game->map.desloc_y * BLOCK_SIZE)));
-	if (visible_x && visible_y)
-		return (1);
+static int	darken_range_right(t_game *game, t_enemy *enemy, double x, double y)
+{
+	
+	double	original_x;
+	double	original_y;
+	int		is_on_screen;
+	int		color;
+	int		color_darker;
+	
+	original_x = x;
+	original_y = y;
+	while (x < original_x + (game->enemy_range * BLOCK_SIZE))
+	{
+		while (y < original_y + BLOCK_SIZE)
+		{
+			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			if (is_on_screen)
+			{
+				color = get_pixel(&game->map.render_map, x, y);
+				color_darker = get_color_shade_red(color, 0.7);
+				put_pixel(&game->map.render_map, x, y, color_darker);
+			}
+			y++;
+		}
+		y = original_y;
+		x++;
+	}
+	return (0);
+}
+
+static int	darken_range_up(t_game *game, t_enemy *enemy, double x, double y)
+{
+	
+	double	original_x;
+	double	original_y;
+	int		is_on_screen;
+	int		color;
+	int		color_darker;
+	
+	original_x = x;
+	original_y = y;
+	while (y > original_y - (game->enemy_range * BLOCK_SIZE))
+	{
+		while (x < original_x + BLOCK_SIZE)
+		{
+			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			if (is_on_screen)
+			{
+				color = get_pixel(&game->map.render_map, x, y);
+				color_darker = get_color_shade_red(color, 0.7);
+				put_pixel(&game->map.render_map, x, y, color_darker);
+			}
+			x++;
+		}
+		x = original_x;
+		y--;
+	}
+	return (0);
+}
+
+static int	darken_range_down(t_game *game, t_enemy *enemy, double x, double y)
+{
+	
+	double	original_x;
+	double	original_y;
+	int		is_on_screen;
+	int		color;
+	int		color_darker;
+	
+	original_x = x;
+	original_y = y;
+	while (y < original_y + (game->enemy_range * BLOCK_SIZE))
+	{
+		while (x < original_x + BLOCK_SIZE)
+		{
+			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			if (is_on_screen)
+			{
+				color = get_pixel(&game->map.render_map, x, y);
+				color_darker = get_color_shade_red(color, 0.7);
+				put_pixel(&game->map.render_map, x, y, color_darker);
+			}
+			x++;
+		}
+		x = original_x;
+		y++;
+	}
 	return (0);
 }
 
@@ -39,13 +146,16 @@ static void	darken_range(t_game *game, int x, int y)
 	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
-	while (y < original_y + (3 * BLOCK_SIZE))
+	while (y < original_y + (game->enemy_range * BLOCK_SIZE))
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
-			color = get_pixel(&game->map.render_map, x, y);
-			color_darker = get_color_shade(color, 0.7);
-			put_pixel(&game->map.render_map, x, y, color_darker);
+			if (x < game->map.width * BLOCK_SIZE)
+			{
+				color = get_pixel(&game->map.render_map, x, y);
+				color_darker = get_color_shade_red(color, 0.7);
+				put_pixel(&game->map.render_map, x, y, color_darker);
+			}
 			x++;
 		}
 		x = original_x;
@@ -56,7 +166,7 @@ static void	darken_range(t_game *game, int x, int y)
 void	render_enemy(t_game *game)
 {
 	t_enemy		*enemy;
-	t_sprite	*sprite;
+	t_data		*sprite;
 	int			x;
 	int			y;
 
@@ -67,9 +177,27 @@ void	render_enemy(t_game *game)
 		{
 			x = (enemy->f_x - game->map.desloc_x) * BLOCK_SIZE;
 			y = (enemy->f_y - game->map.desloc_y) * BLOCK_SIZE;
-			sprite = &game->resources.enemy;
-			darken_range(game, x, y);
-			copy_img_to(&game->map.render_map, &sprite->down[0], \
+			if (enemy->direction == DOWN)
+			{
+				sprite = game->resources.enemy.down;
+				darken_range_down(game, enemy, x, y);
+			}
+			if (enemy->direction == UP)
+			{
+				sprite = game->resources.enemy.up;
+				darken_range_up(game, enemy, x, y);
+			}
+			if (enemy->direction == LEFT)
+			{
+				sprite = game->resources.enemy.left;
+				darken_range_left(game, enemy, x, y);
+			}
+			if (enemy->direction == RIGHT)
+			{
+				sprite = game->resources.enemy.right;
+				darken_range_right(game, enemy, x, y);
+			}
+			copy_img_to(&game->map.render_map, &sprite[0], \
 				to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 		}
 		enemy = enemy->next;
