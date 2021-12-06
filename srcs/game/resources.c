@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 21:43:09 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 01:38:37 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	load_resources(t_game *game)
 {
 	player_walk_sprites(game);
 	pokemon_sprites(game);
+	enemy_sprites(game);
 	load_img(&game->resources.wall, "./assets/imgs/sceane/wall.xpm", game);
 	load_img(&game->resources.floor[0], "./assets/imgs/sceane/floor_0.xpm", game);
 	load_img(&game->resources.floor[1], "./assets/imgs/sceane/floor_1.xpm", game);

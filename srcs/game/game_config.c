@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 20:26:12 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 01:31:40 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	game_config(t_game *game)
 	load_resources(game);
 	set_player_cord(game);
 	create_elements(game);
+	create_enemies(game);
 	draw_fullmap(game);
 	game->vel = 0.25f;
 	return (0);

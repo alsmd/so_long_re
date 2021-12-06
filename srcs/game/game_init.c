@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 20:58:44 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 01:44:51 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	update_frame(t_game *game)
 	render_map(game);
 	render_pokemon(game);
 	render_door(game);
+	render_enemy(game);
 	render_player(game);
 	mlx_put_image_to_window(game->vars.mlx, game->vars.win, \
 		game->map.render_map.img, 0, 0);
@@ -32,6 +33,7 @@ static void	close_game(t_game *game)
 	free_player_walk_sprites(game);
 	free_pokemon_sprites(game);
 	free_resources(game);
+	free_enemy_sprites(game);
 	mlx_destroy_window(game->vars.mlx, game->vars.win);
 	mlx_destroy_display(game->vars.mlx);
 	free(game->vars.mlx);

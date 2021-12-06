@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 21:00:00 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/06 01:43:36 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,5 +184,26 @@ void	render_pokemon(t_game *game);
 	@brief Check if player is in collition with a pokemon
 */
 int		check_poke_collition(t_game *game);
+
+//ENEMY
+/*
+	@brief Load enemy sprites.
+*/
+void	enemy_sprites(t_game *game);
+
+/*
+	@brief Free enemy sprites.
+*/
+void	free_enemy_sprites(t_game *game);
+
+/*
+	@brief Create enemies.
+*/
+void	create_enemies(t_game *game);
+
+/*
+	@brief Render enemies.
+*/
+void	render_enemy(t_game *game);
 
 #endif
