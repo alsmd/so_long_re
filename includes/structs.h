@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 12:42:21 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:26:53 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct s_resources
 	t_sprite	pokemon_sprites[POKEMON_AMOUNT];
 	t_sprite	enemy;
 	t_data		enemy_face;
+	t_data		reset_message;
 }	t_resources;
 
 typedef struct s_game
@@ -129,6 +130,8 @@ typedef struct s_game
 	int			win;
 	double		vel;
 	double		enemy_vel;
+	int			restart;
+	int			close;
 }	t_game;
 
 enum e_status

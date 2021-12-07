@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 13:26:15 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:08:34 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,17 @@ static void	draw_capturing_animation(t_game *game, int x, int y)
 static void	draw_victory(t_game *game, int x, int y)
 {
 	static int	side;
+	static int	render;
 	int			frame;
 
 	frame = game->player.walk_frame_animation;
 	copy_img_to(&game->map.render_map, &game->player.victory[frame], \
 			to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
+	if (render > 3)
+	{
+		copy_img_to(&game->map.render_map, &game->resources.reset_message, \
+			to_array((game->width / 2) * BLOCK_SIZE - 100, (game->height * BLOCK_SIZE)  - 150 , 200, 100));
+	}
 	if (game->player.delay_animation > FRAMES)
 	{
 		if (frame < 1)
@@ -80,6 +86,7 @@ static void	draw_victory(t_game *game, int x, int y)
 		else
 			game->player.walk_frame_animation = 0;
 		game->player.delay_animation = 0;
+		render++;
 	}
 	game->player.delay_animation++;
 }
@@ -94,6 +101,11 @@ static void	draw_lost(t_game *game, int x, int y)
 			to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 	copy_img_to(&game->map.render_map, &game->resources.enemy_face, \
 		to_array((game->enemy_found->f_x - game->map.desloc_x) * BLOCK_SIZE, (game->enemy_found->f_y - game->map.desloc_y) * BLOCK_SIZE - 100, 150, 100));
+	if (render > 3)
+	{
+		copy_img_to(&game->map.render_map, &game->resources.reset_message, \
+			to_array((game->width / 2) * BLOCK_SIZE - 100, (game->height * BLOCK_SIZE)  - 150 , 200, 100));
+	}
 	if (game->player.delay_animation > FRAMES)
 	{
 		if (frame < 3)

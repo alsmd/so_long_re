@@ -6,14 +6,14 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 12:50:39 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:17:31 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define FRAMES 60
-# define DARKNESS 0.5
+# define DARKNESS 0.7
 # define TRANSPARENT 0x589058
 # define BLOCK_SIZE 32
 # define WALL '1'
@@ -41,6 +41,12 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+
+/*
+	@brief	Start the game
+*/
+int	init(char *map, t_game *game);
+
 
 //MAP
 /*

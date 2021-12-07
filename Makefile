@@ -1,4 +1,4 @@
-SRCS =	./srcs/main.c ./srcs/message.c \
+SRCS =	./srcs/main.c ./srcs/message.c ./srcs/init.c \
 		./srcs/map/check.c ./srcs/map/utils.c ./srcs/map/draw.c \
 		./srcs/game/game_config.c ./srcs/game/resources.c ./srcs/game/game_init.c ./srcs/game/utils.c \
 		./srcs/game/draw.c ./srcs/game/check.c \

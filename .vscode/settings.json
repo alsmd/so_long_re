@@ -3,6 +3,7 @@
 	"files.associations": {
 		"so_long.h": "c",
 		"random": "c",
-		"*.tcc": "c"
+		"*.tcc": "c",
+		"typeinfo": "c"
 	}
 }
