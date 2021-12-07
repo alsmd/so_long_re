@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 12:08:26 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 15:38:09 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	darken_range_left(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
-	x += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
@@ -54,6 +53,7 @@ static int	darken_range_right(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
+	x += BLOCK_SIZE - 1;
 	original_x = x;
 	original_y = y;
 	while (x < original_x + (game->enemy_range * BLOCK_SIZE))
@@ -86,7 +86,6 @@ static int	darken_range_up(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
-	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (y > original_y - (game->enemy_range * BLOCK_SIZE))
@@ -119,6 +118,7 @@ static int	darken_range_down(t_game *game, t_enemy *enemy, double x, double y)
 	int		color;
 	int		color_darker;
 	
+	y += BLOCK_SIZE - 1;
 	original_x = x;
 	original_y = y;
 	while (y < original_y + (game->enemy_range * BLOCK_SIZE))

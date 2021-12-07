@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 13:01:55 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 15:38:15 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ static int	has_collition_left(t_game *game, t_enemy *enemy, double x, double y)
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
+	int		array_x;
+	int		array_y;
 
-	x += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
+			array_x = (x / BLOCK_SIZE) + game->map.desloc_x;
+			array_y = (y / BLOCK_SIZE) + game->map.desloc_y;
+			if (game->map.array[array_y][array_x] == WALL)
+				return (0);
 			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
 					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen && player_collition_on_range(game, x, y))
@@ -42,13 +47,20 @@ static int	has_collition_right(t_game *game, t_enemy *enemy, double x, double y)
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
-
+	int		array_x;
+	int		array_y;
+	
+	x += BLOCK_SIZE - 1;
 	original_x = x;
 	original_y = y;
 	while (x < original_x + (game->enemy_range * BLOCK_SIZE))
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
+			array_x = (x / BLOCK_SIZE) + game->map.desloc_x;
+			array_y = (y / BLOCK_SIZE) + game->map.desloc_y;
+			if (game->map.array[array_y][array_x] == WALL)
+				return (0);
 			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
 					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen && player_collition_on_range(game, x, y))
@@ -66,14 +78,19 @@ static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
+	int		array_x;
+	int		array_y;
 
-	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
 	while (y > original_y - (game->enemy_range * BLOCK_SIZE))
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
+			array_x = (x / BLOCK_SIZE) + game->map.desloc_x;
+			array_y = (y / BLOCK_SIZE) + game->map.desloc_y;
+			if (game->map.array[array_y][array_x] == WALL)
+				return (0);
 			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
 					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen && player_collition_on_range(game, x, y))
@@ -91,13 +108,20 @@ static int	has_collition_down(t_game *game, t_enemy *enemy, double x, double y)
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
+	int		array_x;
+	int		array_y;
 
+	y += BLOCK_SIZE - 1;
 	original_x = x;
 	original_y = y;
 	while (y < original_y + (game->enemy_range * BLOCK_SIZE))
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
+			array_x = (x / BLOCK_SIZE) + game->map.desloc_x;
+			array_y = (y / BLOCK_SIZE) + game->map.desloc_y;
+			if (game->map.array[array_y][array_x] == WALL)
+				return (0);
 			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
 					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen && player_collition_on_range(game, x, y))
