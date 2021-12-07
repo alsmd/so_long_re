@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 01:16:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 13:11:53 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	update_frame(t_game *game)
 	render_player(game);
 	if (game->win == FALSE && game->lost == FALSE && game->getting_poke == FALSE)
 		move_enemies(game);
+	else if (game->lost == TRUE)
+	{
+		move_enemy(game);
+	}
 	mlx_put_image_to_window(game->vars.mlx, game->vars.win, \
 		game->map.render_map.img, 0, 0);
 	return (1);

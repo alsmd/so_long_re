@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 20:45:16 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 12:35:12 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ static void	free_animations(t_game *game)
 	mlx_destroy_image(game->vars.mlx, game->player.victory[0].img);
 	mlx_destroy_image(game->vars.mlx, game->player.victory[1].img);
 	mlx_destroy_image(game->vars.mlx, game->player.victory[2].img);
+	mlx_destroy_image(game->vars.mlx, game->player.lost[0].img);
+	mlx_destroy_image(game->vars.mlx, game->player.lost[1].img);
+	mlx_destroy_image(game->vars.mlx, game->player.lost[2].img);
+	mlx_destroy_image(game->vars.mlx, game->player.lost[3].img);
 }
 
 static void	animations(t_game *game)
@@ -75,6 +79,11 @@ static void	animations(t_game *game)
 	load_img(&frame[0], "./assets/animation/victory/0.xpm", game);
 	load_img(&frame[1], "./assets/animation/victory/1.xpm", game);
 	load_img(&frame[2], "./assets/animation/victory/2.xpm", game);
+	frame = game->player.lost;
+	load_img(&frame[0], "./assets/animation/lost/0.xpm", game);
+	load_img(&frame[1], "./assets/animation/lost/1.xpm", game);
+	load_img(&frame[2], "./assets/animation/lost/2.xpm", game);
+	load_img(&frame[3], "./assets/animation/lost/3.xpm", game);
 }
 
 void	player_walk_sprites(t_game *game)

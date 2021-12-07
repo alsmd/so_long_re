@@ -6,13 +6,14 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 00:54:11 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 12:50:39 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define FRAMES 60
+# define DARKNESS 0.5
 # define TRANSPARENT 0x589058
 # define BLOCK_SIZE 32
 # define WALL '1'
@@ -234,8 +235,18 @@ int		enemy_collision_y(t_game *game, int move, t_enemy *enemy);
 void	move_enemies(t_game *game);
 
 /*
+	@brief	Move the enemy that detected the player towards him
+*/
+void	move_enemy(t_game *game);
+
+/*
 	@brief	checks if any of the player's corners collided with pixel x and y
 */
 int		player_collition_on_range(t_game *game, double x, double y);
+
+/*
+	@brief	Check if enemy or its range is inside de screen
+*/
+int		enemy_range_on_screen(t_game *game, double x, double y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 00:36:18 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 12:08:26 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static int	darken_range_left(t_game *game, t_enemy *enemy, double x, double y)
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
-				color_darker = get_color_shade_red(color, 0.7);
+				color_darker = get_color_shade(color, 1.3);
+				color_darker = get_color_shade_red(color_darker, 0.9);
 				put_pixel(&game->map.render_map, x, y, color_darker);
 			}
 			y++;
@@ -64,7 +65,8 @@ static int	darken_range_right(t_game *game, t_enemy *enemy, double x, double y)
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
-				color_darker = get_color_shade_red(color, 0.7);
+				color_darker = get_color_shade(color, 1.3);
+				color_darker = get_color_shade_red(color_darker, 0.9);
 				put_pixel(&game->map.render_map, x, y, color_darker);
 			}
 			y++;
@@ -96,7 +98,8 @@ static int	darken_range_up(t_game *game, t_enemy *enemy, double x, double y)
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
-				color_darker = get_color_shade_red(color, 0.7);
+				color_darker = get_color_shade(color, 1.3);
+				color_darker = get_color_shade_red(color_darker, 0.9);
 				put_pixel(&game->map.render_map, x, y, color_darker);
 			}
 			x++;
@@ -127,7 +130,8 @@ static int	darken_range_down(t_game *game, t_enemy *enemy, double x, double y)
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
-				color_darker = get_color_shade_red(color, 0.7);
+				color_darker = get_color_shade(color, 1.3);
+				color_darker = get_color_shade_red(color_darker, 0.9);
 				put_pixel(&game->map.render_map, x, y, color_darker);
 			}
 			x++;
@@ -148,7 +152,7 @@ void	render_enemy(t_game *game)
 	enemy = game->enemies;
 	while (enemy)
 	{
-		if (is_on_screen(game, enemy->f_x, enemy->f_y))
+		if (enemy_range_on_screen(game, enemy->f_x, enemy->f_y))
 		{
 			x = (enemy->f_x - game->map.desloc_x) * BLOCK_SIZE;
 			y = (enemy->f_y - game->map.desloc_y) * BLOCK_SIZE;

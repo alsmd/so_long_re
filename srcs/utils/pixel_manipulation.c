@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 16:15:47 by flavio            #+#    #+#             */
-/*   Updated: 2021/12/06 19:21:47 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 11:46:38 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	copy_img_to(t_data *dest, t_data *src, int info[4])
 		{
 			pixel = get_pixel(src, x, y);
 			if (pixel != TRANSPARENT)
-				put_pixel(dest, info[0], info[1], pixel);
+				put_pixel(dest, info[0], info[1], get_color_shade(pixel, DARKNESS));
 			y++;
 			info[1]++;
 		}

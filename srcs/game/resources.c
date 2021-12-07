@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 01:38:37 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 12:39:37 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 void	load_resources(t_game *game)
 {
+	t_resources	*resour;
+
+	resour = &game->resources;
 	player_walk_sprites(game);
 	pokemon_sprites(game);
 	enemy_sprites(game);
-	load_img(&game->resources.wall, "./assets/imgs/sceane/wall.xpm", game);
-	load_img(&game->resources.floor[0], "./assets/imgs/sceane/floor_0.xpm", game);
-	load_img(&game->resources.floor[1], "./assets/imgs/sceane/floor_1.xpm", game);
-	load_img(&game->resources.floor[2], "./assets/imgs/sceane/floor_2.xpm", game);
-	load_img(&game->resources.door[0], "./assets/imgs/sceane/door_close.xpm", \
+	load_img(&resour->wall, "./assets/imgs/sceane/wall.xpm", game);
+	load_img(&resour->enemy_face, "./assets/imgs/enemy/enemy_face.xpm", game);
+	load_img(&resour->floor[0], "./assets/imgs/sceane/floor_0.xpm", game);
+	load_img(&resour->floor[1], "./assets/imgs/sceane/floor_1.xpm", game);
+	load_img(&resour->floor[2], "./assets/imgs/sceane/floor_2.xpm", game);
+	load_img(&resour->door[0], "./assets/imgs/sceane/door_close.xpm", \
 			game);
-	load_img(&game->resources.door[1], "./assets/imgs/sceane/door_open.xpm", \
+	load_img(&resour->door[1], "./assets/imgs/sceane/door_open.xpm", \
 			game);
 	create_img(&game->map.render_map, game->width * BLOCK_SIZE, \
 			game->height * BLOCK_SIZE, game);
@@ -94,4 +98,5 @@ void	free_resources(t_game *game)
 	mlx_destroy_image(game->vars.mlx, game->resources.floor[2].img);
 	mlx_destroy_image(game->vars.mlx, game->resources.door[0].img);
 	mlx_destroy_image(game->vars.mlx, game->resources.door[1].img);
+	mlx_destroy_image(game->vars.mlx, game->resources.enemy_face.img);
 }

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 01:15:48 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 13:01:55 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,12 @@ int	check_enemy_collition(t_game *game)
 			game->lost = 1;
 		if (direction == RIGHT && has_collition_right(game, enemy, x, y))
 			game->lost = 1;
+		if (game->lost == TRUE)
+		{
+			game->enemy_found = enemy;
+			game->player.delay_animation = 0;
+			game->player.walk_frame_animation = 0;
+		}
 		enemy = enemy->next;
 	}
 	return (0);
