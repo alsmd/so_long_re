@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 00:36:27 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 16:53:07 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void	player_move(t_game *game, int move)
 			game->map.array[game->player.y][game->player.x] = FLOOR;
 			game->player.x += direction;
 		}
+		game->player.steps += 1;
 	}
 	if ((move == DOWN || move == UP) && !check_collision_y(game, move))
 	{
@@ -103,6 +104,7 @@ void	player_move(t_game *game, int move)
 			game->map.array[game->player.y][game->player.x] = FLOOR;
 			game->player.y += direction;
 		}
+		game->player.steps += 1;
 	}
 	game->map.array[game->player.y][game->player.x] = PLAYER;
 	check_enemy_collition(game);

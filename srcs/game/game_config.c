@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 18:04:41 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 15:41:30 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int	game_config(t_game *game)
 	draw_fullmap(game);
 	game->vel = 0.25f;
 	game->enemy_vel = 0.01f;
-	game->enemy_range = 3;
+	game->enemy_range = 2;
 	return (0);
 }
