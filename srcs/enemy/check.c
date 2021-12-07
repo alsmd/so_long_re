@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 21:58:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 01:15:48 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 static int	has_collition_left(t_game *game, t_enemy *enemy, double x, double y)
 {
-	
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
-	
+
+	x += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
-	x += BLOCK_SIZE;
 	while (x > original_x - (game->enemy_range * BLOCK_SIZE))
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
-			if (is_on_screen)
-			{
-				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
-					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
-					return (1);
-			}
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
+			if (is_on_screen && player_collition_on_range(game, x, y))
+				return (1);
 			y++;
 		}
 		y = original_y;
@@ -44,25 +39,20 @@ static int	has_collition_left(t_game *game, t_enemy *enemy, double x, double y)
 
 static int	has_collition_right(t_game *game, t_enemy *enemy, double x, double y)
 {
-	
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
-	
+
 	original_x = x;
 	original_y = y;
 	while (x < original_x + (game->enemy_range * BLOCK_SIZE))
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
-			if (is_on_screen)
-			{
-				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
-					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
-					return (1);
-			}
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
+			if (is_on_screen && player_collition_on_range(game, x, y))
+				return (1);
 			y++;
 		}
 		y = original_y;
@@ -73,11 +63,10 @@ static int	has_collition_right(t_game *game, t_enemy *enemy, double x, double y)
 
 static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 {
-	
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
-	
+
 	y += BLOCK_SIZE;
 	original_x = x;
 	original_y = y;
@@ -85,14 +74,10 @@ static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
-			if (is_on_screen)
-			{
-				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
-					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
-					return (1);
-			}
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
+			if (is_on_screen && player_collition_on_range(game, x, y))
+				return (1);
 			x++;
 		}
 		x = original_x;
@@ -103,26 +88,20 @@ static int	has_collition_up(t_game *game, t_enemy *enemy, double x, double y)
 
 static int	has_collition_down(t_game *game, t_enemy *enemy, double x, double y)
 {
-	
 	double	original_x;
 	double	original_y;
 	int		is_on_screen;
-	
+
 	original_x = x;
 	original_y = y;
 	while (y < original_y + (game->enemy_range * BLOCK_SIZE))
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
-			if (is_on_screen)
-			{
-				 
-				if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
-					aprox(y, ((game->player.f_y * BLOCK_SIZE))))
-					return (1);
-			}
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
+			if (is_on_screen && player_collition_on_range(game, x, y))
+				return (1);
 			x++;
 		}
 		x = original_x;

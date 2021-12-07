@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 21:53:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 00:36:18 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	darken_range_left(t_game *game, t_enemy *enemy, double x, double y)
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
@@ -59,8 +59,8 @@ static int	darken_range_right(t_game *game, t_enemy *enemy, double x, double y)
 	{
 		while (y < original_y + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
@@ -91,8 +91,8 @@ static int	darken_range_up(t_game *game, t_enemy *enemy, double x, double y)
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);
@@ -122,8 +122,8 @@ static int	darken_range_down(t_game *game, t_enemy *enemy, double x, double y)
 	{
 		while (x < original_x + BLOCK_SIZE)
 		{
-			is_on_screen = x < game->map.width * BLOCK_SIZE && x >= 0 && \
-					y >= 0 && y < game->map.height * BLOCK_SIZE;
+			is_on_screen = x < game->width * BLOCK_SIZE && x >= 0 && \
+					y >= 0 && y < game->height * BLOCK_SIZE;
 			if (is_on_screen)
 			{
 				color = get_pixel(&game->map.render_map, x, y);

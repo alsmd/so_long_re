@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 16:52:41 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 00:52:59 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,22 @@ int	enemy_collision_x(t_game *game, int move, t_enemy *enemy)
 		if (game->map.array[enemy->y][x] == WALL)
 			return (1);
 	}
+	return (0);
+}
+
+int	player_collition_on_range(t_game *game, double x, double y)
+{
+	if (aprox(x, ((game->player.f_x * BLOCK_SIZE))) && \
+		aprox(y, ((game->player.f_y * BLOCK_SIZE))))
+		return (1);
+	if (aprox(x, game->player.f_x * BLOCK_SIZE + BLOCK_SIZE - 1) && \
+		aprox(y, game->player.f_y * BLOCK_SIZE))
+		return (1);
+	if (aprox(x, game->player.f_x * BLOCK_SIZE) && \
+		aprox(y, game->player.f_y * BLOCK_SIZE + BLOCK_SIZE - 1))
+		return (1);
+	if (aprox(x, game->player.f_x * BLOCK_SIZE + BLOCK_SIZE - 1) && \
+		aprox(y, game->player.f_y * BLOCK_SIZE + BLOCK_SIZE - 1))
+		return (1);
 	return (0);
 }
