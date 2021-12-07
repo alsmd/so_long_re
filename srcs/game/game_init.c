@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 13:11:53 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:45:50 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	update_frame(t_game *game)
 {
+	if (game->close)
+		return (1);
 	render_map(game);
 	render_pokemon(game);
 	render_door(game);
@@ -41,16 +43,19 @@ static void	close_game(t_game *game)
 	free_resources(game);
 	free_enemy_sprites(game);
 	mlx_destroy_window(game->vars.mlx, game->vars.win);
-	mlx_destroy_display(game->vars.mlx);
-	free(game->vars.mlx);
-	exit(0);
+	game->close = TRUE;
 }
 
 int	keypress(int kc, t_game *game)
 {
 	if (kc == ESQ)
 		close_game(game);
-	if (game->win == TRUE || game->lost == TRUE)
+	if ((game->lost || game->win) && kc == SPACE)
+	{
+		game->restart = 1;
+		close_game(game);
+	}
+	if (game->win == TRUE || game->lost == TRUE || game->close)
 		return (1);
 	if (game->getting_poke == FALSE)
 	{

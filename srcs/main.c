@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:56:58 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 17:38:15 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:47:34 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 int	main(int argc, char *argv[])
 {
-	int		status;
 	t_game	game;
+	int		status;
 
-	ft_bzero(&game, sizeof(t_game));
-	status = map_check(&game, "./maps/simple.ber");
-	if (status != VALID_MAP)
-		return (print_message_status(status));
-	status = game_config(&game);
-	if (status == SERVER_ERROR)
+	game.restart = 1;
+	while (game.restart == 1)
 	{
-		free(game.map.array[0]);
-		free(game.map.array);
-		return (print_message_status(status));
+		status = init(argv[1], &game);
+		mlx_destroy_display(game.vars.mlx);
+		free(game.vars.mlx);
 	}
-	game_init(&game);
-	return (0);
+	return (status);
 }

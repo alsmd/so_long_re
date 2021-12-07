@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 14:17:31 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 14:45:46 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define LEFT 97
 # define RIGHT 100
 # define ESQ 65307
+# define SPACE 32
 # define APROX_MAX 0.9
 # define APROX_MIN 0.0001
 # include "get_next_line.h"
