@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 02:21:19 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:02:40 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	check_range(t_game *game, t_enemy *enemy, double pos[2])
 	int		x;
 	int		y;
 	
-	block = BLOCK_SIZE;
+	block = BLOCK_SIZE - 1;
 	pixels = game->enemy_range * BLOCK_SIZE;
 	while (pixels > 0)
 	{
@@ -69,7 +69,7 @@ int	check_range(t_game *game, t_enemy *enemy, double pos[2])
 			check_pixel(game, pos_cpy);
 			block--;
 		}
-		block = BLOCK_SIZE;
+		block = BLOCK_SIZE - 1;
 		if (enemy->direction[0] != 0)
 			pos[0] += enemy->direction[0];
 		else
@@ -91,9 +91,9 @@ int	check_enemy_collition(t_game *game)
 		f_sub_vetor(position, game->map.desloc);
 		f_vec_scale(position, BLOCK_SIZE);
 		if (enemy->direction[1] == 1)
-			position[1] += BLOCK_SIZE;
+			position[1] += BLOCK_SIZE - 1;
 		if (enemy->direction[0] == 1)
-			position[0] += BLOCK_SIZE;
+			position[0] += BLOCK_SIZE - 1;
 		check_range(game, enemy, position);
 		if (game->lost == TRUE)
 		{

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 01:59:01 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:48:04 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ static void	enemy_move(t_game *game, t_enemy *enemy)
 	f_copy_vetor(direction, enemy->direction);
 	f_multi_vetor(direction, game->enemy_speed);
 	f_sum_vetor(position, direction);
+	printf("enemy x %f, enemy y %f\n", position[0], position[1]);
 	if (!check_collision(game, enemy->direction, position))
 		f_sum_vetor(enemy->position, direction);
+	printf("enemy x %f, enemy y %f\n", enemy->position[0], enemy->position[1]);
 }
 
 void	move_enemies(t_game *game)

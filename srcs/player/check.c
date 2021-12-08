@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 00:31:13 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:22:16 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	check_collision(t_game *game, double direction[2], double position[2])
 		i_position_2[0] = round_up(position[0]);
 		i_position_2[1] = i_position[1];;
 	}
+	printf("new x :%d \n", round_up(position[0]));
 	if (game->map.array[i_position[1]][i_position[0]] == WALL)
 		return (1);
 	if (game->map.array[i_position_2[1]][i_position_2[0]] == WALL)
