@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:31:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:10:25 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 20:46:39 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,5 @@ int	map_check(t_game *game, char *map_name)
 		return (WRONG_MAP_FORMAT);
 	}
 	close(fd);
-	game->map.desloc_x = 0;
-	game->map.desloc_y = 0;
 	return (VALID_MAP);
 }

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 14:45:46 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 01:37:30 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define APROX_MIN 0.0001
 # include "get_next_line.h"
 # include "utils.h"
+# include "vetor.h"
 # include <mlx.h>
 # include <X11/X.h>
 # include <stdio.h>
@@ -132,6 +133,9 @@ void	free_resources(t_game *game);
 */
 int		aprox(double a, double b);
 
+int	round_up(double n);
+int	round_down(double n);
+
 //RESOURCES
 /*
 	@brief	Load the game resources.
@@ -151,6 +155,10 @@ void	free_player_walk_sprites(t_game *game);
 
 void	change_frame(t_game *game, int move);
 
+int		can_move_cam(t_game *game);
+
+int		has_player_collition(t_game *game, double pos[2]);
+
 /*
 	@brief	set game->player.x/y correponding to player's position
 */
@@ -169,8 +177,8 @@ void	player_move(t_game *game, int move);
 /*
 	@brief	check collision on walls
 */
-int		check_collision_y(t_game *game, int move);
-int		check_collision_x(t_game *game, int move);
+int	check_collision(t_game *game, double direction[2], double position[2]);
+
 
 //POKEMON
 
@@ -226,11 +234,6 @@ void	render_enemy(t_game *game);
 int	check_enemy_collition(t_game *game);
 
 /*
-	@brief Move an enemy to a specific direction.
-*/
-void	enemy_move(t_game *game, int move, t_enemy *enemy);
-
-/*
 	@brief Check if enemy can make a moviment x or y.
 */
 int		enemy_collision_x(t_game *game, int move, t_enemy *enemy);
@@ -245,11 +248,6 @@ void	move_enemies(t_game *game);
 	@brief	Move the enemy that detected the player towards him
 */
 void	move_enemy(t_game *game);
-
-/*
-	@brief	checks if any of the player's corners collided with pixel x and y
-*/
-int		player_collition_on_range(t_game *game, double x, double y);
 
 /*
 	@brief	Check if enemy or its range is inside de screen

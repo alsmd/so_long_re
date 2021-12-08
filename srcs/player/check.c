@@ -6,93 +6,67 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 16:31:13 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 00:31:13 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
 
-static int	check_half_step_x(t_game *game, int y)
+int	check_collision(t_game *game, double direction[2], double position[2])
 {
-	int	x_1;
-	int	x_2;
+	int	i_position[2];
+	int	i_position_2[2];
 
-	x_1 = game->player.x;
-	if ((game->player.f_x + game->map.desloc_x) > game->player.x)
-		x_2 = x_1 + 1;
+	if (direction[0] > 0)
+		i_position[0] = round_up(position[0]);
 	else
-		x_2 = x_1 - 1;
-	if (game->map.array[y][x_1] == WALL || game->map.array[y][x_2] == WALL)
+		i_position[0] = round_down(position[0]);
+	if (direction[1] > 0)
+		i_position[1] = round_up(position[1]);
+	else
+		i_position[1] = round_down(position[1]);
+	if (direction[0] != 0)
+	{
+		i_position_2[0] = i_position[0];
+		i_position_2[1] = round_up(position[1]);
+	}
+	if (direction[1] != 0)
+	{
+		i_position_2[0] = round_up(position[0]);
+		i_position_2[1] = i_position[1];;
+	}
+	if (game->map.array[i_position[1]][i_position[0]] == WALL)
+		return (1);
+	if (game->map.array[i_position_2[1]][i_position_2[0]] == WALL)
 		return (1);
 	return (0);
 }
 
-int	check_collision_y(t_game *game, int move)
+int	can_move_cam(t_game *game)
 {
-	int		y;
-	int		half_step_y;
-	int		half_step_x;
-	double	y_x_global[2];
+	double	pos[2];
+	double	direction[2];
+	double	desloc[2];
+	double	width;
+	double	heig;
 
-	y_x_global[0] = game->player.f_y + game->map.desloc_y;
-	y_x_global[1] = game->player.f_x + game->map.desloc_x;
-	half_step_y = !(aprox(y_x_global[0], game->player.y));
-	half_step_x = !(aprox(y_x_global[1], game->player.x));
-	if (half_step_y)
-		return (0);
-	if (move == UP)
-		y = -1;
-	else
-		y = 1;
-	y += game->player.y;
-	if (half_step_x && check_half_step_x(game, y))
-		return (1);
-	else
+	width = game->map.width;
+	heig = game->map.height;
+	f_copy_vetor(pos, game->player.position);
+	f_copy_vetor(direction, game->player.direc);
+	f_copy_vetor(desloc, game->map.desloc);
+	if (direction[0] != 0)
 	{
-		if (game->map.array[y][game->player.x] == WALL)
+		if (pos[0] >= game->width / 2 && direction[0] > 0 && desloc[0] + game->width < width)
+			return (1);
+		else if (pos[0] <= game->width / 2 && direction[0] < 0 && desloc[0] > 0)
 			return (1);
 	}
-	return (0);
-}
-
-static int	check_half_step_y(t_game *game, int x)
-{
-	int	y_1;
-	int	y_2;
-
-	y_1 = game->player.y;
-	if (game->player.f_y + game->map.desloc_y >= game->player.y)
-		y_2 = y_1 + 1;
-	else
-		y_2 = y_1 - 1;
-	if (game->map.array[y_1][x] == WALL || game->map.array[y_2][x] == WALL)
-		return (1);
-	return (0);
-}
-
-int	check_collision_x(t_game *game, int move)
-{
-	int		x;
-	int		half_step_y;
-	int		half_step_x;
-	double	y_x_global[2];
-
-	y_x_global[0] = game->player.f_y + game->map.desloc_y;
-	y_x_global[1] = game->player.f_x + game->map.desloc_x;
-	half_step_y = !(aprox(y_x_global[0], game->player.y));
-	half_step_x = !(aprox(y_x_global[1], game->player.x));
-	if (half_step_x)
-		return (0);
-	if (move == LEFT)
-		x = -1;
-	else
-		x = 1;
-	x += game->player.x;
-	if (half_step_y && check_half_step_y(game, x))
-		return (1);
-	else
+	if (direction[1] != 0)
 	{
-		if (game->map.array[game->player.y][x] == WALL)
+		if (pos[1] >= game->height / 2 && direction[1] > 0 && desloc[1] + game->height < heig)
+			return (1);
+		else if (pos[1] < game->height / 2 && direction[1] < 0 && desloc[1] > 0)
 			return (1);
 	}
 	return (0);

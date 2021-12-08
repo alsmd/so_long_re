@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 15:41:30 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 02:24:01 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int	set_cam(t_game *game)
 			{
 				game->map.desloc_x = x;
 				game->map.desloc_y = y;
+				f_new_vetor(game->map.desloc, x, y);
 				return (0);
 			}
 			x++;
@@ -89,6 +90,8 @@ int	game_config(t_game *game)
 	create_enemies(game);
 	draw_fullmap(game);
 	game->vel = 0.25f;
+	f_new_vetor(game->player.speed, 0.25f, 0.25f);
+	f_new_vetor(game->enemy_speed, 0.01f, 0.01f);
 	game->enemy_vel = 0.01f;
 	game->enemy_range = 2;
 	return (0);

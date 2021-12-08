@@ -4,6 +4,9 @@
 		"so_long.h": "c",
 		"random": "c",
 		"*.tcc": "c",
-		"typeinfo": "c"
+		"typeinfo": "c",
+		"utils.h": "c",
+		"vetor.h": "c",
+		"structs.h": "c"
 	}
 }

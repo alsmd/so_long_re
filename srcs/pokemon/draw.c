@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/06 18:31:27 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:12:33 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ void	render_pokemon(t_game *game)
 {
 	t_pokemon	*poke;
 	t_sprite	*sprite;
-	int			x;
-	int			y;
+	double		position[2];
 
 	poke = game->pokemons;
 	while (poke)
 	{
-		if (is_on_screen(game, poke->f_x, poke->f_y))
+		if (is_on_screen(game, poke->position[0], poke->position[1]))
 		{
-			x = (poke->f_x - game->map.desloc_x) * BLOCK_SIZE;
-			y = (poke->f_y - game->map.desloc_y) * BLOCK_SIZE;
+			f_copy_vetor(position, poke->position);
+			f_sub_vetor(position, game->map.desloc);
+			f_vec_scale(position, BLOCK_SIZE);
 			sprite = &game->resources.pokemon_sprites[poke->id];
 			copy_img_to(&game->map.render_map, &sprite->down[poke->walk_frame], \
-				to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
+				to_array(position[0], position[1], BLOCK_SIZE, BLOCK_SIZE));
 			change_walk_frame(poke);
 		}
 		poke = poke->next;

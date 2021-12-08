@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 13:56:42 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 21:00:53 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ static void	new_door(t_game *game, int x, int y)
 	t_door	*new_door;
 
 	new_door = (t_door *) ft_calloc(1, sizeof(t_door));
-	new_door->f_x = x;
-	new_door->f_y = y;
+	f_new_vetor(new_door->position, x, y);
 	begin = game->doors;
 	while (begin && begin->next)
 		begin = begin->next;

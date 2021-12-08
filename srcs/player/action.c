@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 16:53:07 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 01:06:08 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,83 +29,32 @@ void	change_frame(t_game *game, int move)
 		game->player.direction = RIGHT;
 }
 
-static int	move_y(t_game *game, int move)
-{
-	double	new_pos;
-	int		direction;
-
-	if (move == DOWN)
-	{
-		direction = 1;
-		new_pos = game->map.desloc_y + (game->vel * direction) + game->height;
-		if (game->player.f_y >= game->height / 2 && new_pos <= game->map.height)
-			game->map.desloc_y += (game->vel * direction);
-		else
-			game->player.f_y += (game->vel * direction);
-	}
-	else
-	{
-		direction = -1;
-		if (game->player.f_y < game->height / 2 && game->map.desloc_y > 0)
-			game->map.desloc_y += (game->vel * direction);
-		else
-			game->player.f_y += (game->vel * direction);
-	}
-	return (direction);
-}
-
-static int	move_x(t_game *game, int move)
-{
-	double	new_pos;
-	int		direction;
-
-	if (move == RIGHT)
-	{
-		direction = 1;
-		new_pos = game->map.desloc_x + (game->vel * direction) + game->width;
-		if (game->player.f_x >= game->width / 2 && new_pos <= game->map.width)
-			game->map.desloc_x += (game->vel * direction);
-		else
-			game->player.f_x += (game->vel * direction);
-	}
-	else
-	{
-		direction = -1;
-		if (game->player.f_x < game->height / 2 && game->map.desloc_x > 0)
-			game->map.desloc_x += (game->vel * direction);
-		else
-			game->player.f_x += (game->vel * direction);
-	}
-	return (direction);
-}
-
 void	player_move(t_game *game, int move)
 {
-	int		direction;
-	double	next_block;
-
-	if ((move == LEFT || move == RIGHT) && !check_collision_x(game, move))
+	double	position[2];
+	double	direction[2];
+	
+	f_copy_vetor(position,  game->player.position);
+	f_sum_vetor(position, game->map.desloc);
+	if (move == DOWN)
+		f_new_vetor(direction, 0, 1);
+	if (move == UP)
+		f_new_vetor(direction, 0, -1);
+	if (move == LEFT)
+		f_new_vetor(direction, -1, 0);
+	if (move == RIGHT)
+		f_new_vetor(direction, 1, 0);
+	f_copy_vetor(game->player.direc, direction);
+	f_multi_vetor(direction, game->player.speed);
+	f_sum_vetor(position, direction);
+	if (!check_collision(game, game->player.direc, position))
 	{
-		direction = move_x(game, move);
-		next_block = game->player.x + direction;
-		if (aprox(next_block, game->player.f_x + game->map.desloc_x))
-		{
-			game->map.array[game->player.y][game->player.x] = FLOOR;
-			game->player.x += direction;
-		}
-		game->player.steps += 1;
+		if (can_move_cam(game))
+			f_sum_vetor(game->map.desloc, direction);
+		else
+			f_sum_vetor(game->player.position, direction);
+		check_enemy_collition(game);
 	}
-	if ((move == DOWN || move == UP) && !check_collision_y(game, move))
-	{
-		direction = move_y(game, move);
-		next_block = game->player.y + direction;
-		if (aprox(next_block, game->player.f_y + game->map.desloc_y))
-		{
-			game->map.array[game->player.y][game->player.x] = FLOOR;
-			game->player.y += direction;
-		}
-		game->player.steps += 1;
-	}
-	game->map.array[game->player.y][game->player.x] = PLAYER;
-	check_enemy_collition(game);
+	printf("desloc x %f, desloc y %f\n", game->map.desloc[0], game->map.desloc[1]);
+	printf("player x %f, player y %f\n", game->player.position[0], game->player.position[1]);
 }

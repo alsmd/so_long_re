@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 01:18:18 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 15:38:00 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 02:01:28 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ static void	new_enemy(t_game *game, int x, int y)
 	t_enemy *new_enemy;
 
 	new_enemy = (t_enemy *) ft_calloc(1, sizeof(t_enemy));
-	new_enemy->f_x = x;
-	new_enemy->f_y = y;
-	new_enemy->x = x;
-	new_enemy->y = y;
-	new_enemy->direction = DOWN;
+	f_new_vetor(new_enemy->position, x, y);
+	f_new_vetor(new_enemy->direction, 0, -1);
 	begin = game->enemies;
 	while (begin && begin->next)
 		begin = begin->next;
@@ -40,8 +37,8 @@ void	create_enemies(t_game *game)
 	poke = game->pokemons;
 	while (poke)
 	{
-		x = poke->f_x;
-		y = poke->f_y;
+		x = poke->position[0];
+		y = poke->position[1];
 		if (game->map.array[y][x + 1] == FLOOR)
 			new_enemy(game, x + 1, y);
 		else if (game->map.array[y][x - 1] == FLOOR)

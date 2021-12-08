@@ -4,8 +4,9 @@ SRCS =	./srcs/main.c ./srcs/message.c ./srcs/init.c \
 		./srcs/game/draw.c ./srcs/game/check.c \
 		./srcs/player/resources.c ./srcs/player/draw.c ./srcs/player/action.c ./srcs/player/check.c \
 		./srcs/pokemon/resources.c ./srcs/pokemon/draw.c ./srcs/pokemon/check.c ./srcs/pokemon/action.c \
-		./srcs/enemy/resources.c ./srcs/enemy/draw.c ./srcs/enemy/check.c ./srcs/enemy/action.c ./srcs/enemy/check_mov.c \
-		./srcs/enemy/utils.c
+		./srcs/enemy/resources.c ./srcs/enemy/draw.c ./srcs/enemy/check.c ./srcs/enemy/action.c \
+		./srcs/enemy/utils.c \
+		./srcs/vetor/create.c ./srcs/vetor/operation.c ./srcs/vetor/f_create.c ./srcs/vetor/f_operation.c ./srcs/vetor/f_operation_2.c
 
 OBJS = $(SRCS:.c=.o)
 

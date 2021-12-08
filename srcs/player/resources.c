@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 12:35:12 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 20:17:50 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	set_player_cord(t_game *game)
 				game->player.y = y;
 				game->player.f_x = x - game->map.desloc_x;
 				game->player.f_y = y - game->map.desloc_y;
+				game->player.position[0] = x - game->map.desloc[0];
+				game->player.position[1] = y - game->map.desloc[1];
 			}
 			x++;
 		}

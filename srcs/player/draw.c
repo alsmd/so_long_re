@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 14:08:34 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 01:40:07 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static void	draw_lost(t_game *game, int x, int y)
 	copy_img_to(&game->map.render_map, &game->player.lost[frame], \
 			to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
 	copy_img_to(&game->map.render_map, &game->resources.enemy_face, \
-		to_array((game->enemy_found->f_x - game->map.desloc_x) * BLOCK_SIZE, (game->enemy_found->f_y - game->map.desloc_y) * BLOCK_SIZE - 100, 150, 100));
+		to_array((game->enemy_found->position[0] - game->map.desloc_x) * BLOCK_SIZE, (game->enemy_found->position[1] - game->map.desloc_y) * BLOCK_SIZE - 100, 150, 100));
 	if (render > 3)
 	{
 		copy_img_to(&game->map.render_map, &game->resources.reset_message, \
@@ -127,8 +127,8 @@ void	render_player(t_game *game)
 
 	frame = game->player.walk_frame;
 	direction = get_direction(game);
-	x = (game->player.f_x) * BLOCK_SIZE;
-	y = (game->player.f_y) * BLOCK_SIZE;
+	x = (game->player.position[0]) * BLOCK_SIZE;
+	y = (game->player.position[1]) * BLOCK_SIZE;
 	if (game->getting_poke == TRUE)
 		draw_capturing_animation(game, x, y);
 	else if (game->win == TRUE)

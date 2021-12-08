@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 17:16:09 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 01:50:33 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_map
 	char	**array;
 	t_data	render_map;
 	t_data	full_map;
+	double	desloc[2];
 	double	desloc_x;
 	double	desloc_y;
 	int		width;
@@ -69,21 +70,24 @@ typedef struct s_player
 	int				delay;
 	int				walk_frame_animation;
 	int				delay_animation;
+	double			position[2];
+	double			speed[2];
+	double			direc[2];
 }	t_player;
 
 typedef struct s_pokemon
 {
 	int					id;
-	double				f_x;
-	double				f_y;
 	int					walk_frame;
 	int					direction;
 	int					delay;
+	double				position[2];
 	struct s_pokemon	*next;
 }	t_pokemon;
 
 typedef struct s_door
 {
+	double			position[2];
 	double			f_x;
 	double			f_y;
 	struct s_door	*next;
@@ -91,14 +95,11 @@ typedef struct s_door
 
 typedef struct s_enemy
 {
-	double			f_x;
-	double			f_y;
-	int				x;
-	int				y;
 	int				walk_frame;
-	int				steps;
-	int				direction;
 	int				delay;
+	int				steps;
+	double			direction[2];
+	double			position[2];
 	struct s_enemy	*next;
 }	t_enemy;
 
@@ -123,6 +124,7 @@ typedef struct s_game
 	t_resources	resources;
 	t_player	player;
 	t_door		*doors;
+	double		enemy_speed[2];
 	int			getting_poke;
 	int			enemy_range;
 	int			width;

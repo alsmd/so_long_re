@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/05 21:22:54 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/07 20:07:22 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	draw_block(t_game *game, int x, int y)
 void	render_map(t_game *game)
 {
 	copy_img_from(&game->map.render_map, &game->map.full_map, \
-				to_array(game->map.desloc_x * BLOCK_SIZE, \
-				game->map.desloc_y * BLOCK_SIZE, \
+				to_array(game->map.desloc[0] * BLOCK_SIZE, \
+				game->map.desloc[1] * BLOCK_SIZE, \
 				game->width * BLOCK_SIZE, game->height * BLOCK_SIZE));
 }
 
