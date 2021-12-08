@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:25:59 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 20:17:50 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:46:55 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,6 @@ void	set_player_cord(t_game *game)
 		{
 			if (game->map.array[y][x] == PLAYER)
 			{
-				game->player.x = x;
-				game->player.y = y;
-				game->player.f_x = x - game->map.desloc_x;
-				game->player.f_y = y - game->map.desloc_y;
 				game->player.position[0] = x - game->map.desloc[0];
 				game->player.position[1] = y - game->map.desloc[1];
 			}
@@ -81,11 +77,10 @@ static void	animations(t_game *game)
 	load_img(&frame[0], "./assets/animation/victory/0.xpm", game);
 	load_img(&frame[1], "./assets/animation/victory/1.xpm", game);
 	load_img(&frame[2], "./assets/animation/victory/2.xpm", game);
-	frame = game->player.lost;
-	load_img(&frame[0], "./assets/animation/lost/0.xpm", game);
-	load_img(&frame[1], "./assets/animation/lost/1.xpm", game);
-	load_img(&frame[2], "./assets/animation/lost/2.xpm", game);
-	load_img(&frame[3], "./assets/animation/lost/3.xpm", game);
+	load_img(&game->player.lost[0], "./assets/animation/lost/0.xpm", game);
+	load_img(&game->player.lost[1], "./assets/animation/lost/1.xpm", game);
+	load_img(&game->player.lost[2], "./assets/animation/lost/2.xpm", game);
+	load_img(&game->player.lost[3], "./assets/animation/lost/3.xpm", game);
 }
 
 void	player_walk_sprites(t_game *game)
@@ -94,8 +89,8 @@ void	player_walk_sprites(t_game *game)
 
 	sprite = &game->player.sprite;
 	game->player.walk_frame = 0;
-	game->player.direction = DOWN;
 	game->player.delay = 0;
+	game->player.move = DOWN;
 	load_img(&sprite->down[0], "./assets/imgs/player/down_0.xpm", game);
 	load_img(&sprite->down[1], "./assets/imgs/player/down_1.xpm", game);
 	load_img(&sprite->down[2], "./assets/imgs/player/down_2.xpm", game);

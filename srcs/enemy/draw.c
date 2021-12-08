@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 17:05:53 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:48:28 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	darken_pixel(t_game *game, double pos[2])
 	int		is_on_screen;
 	int		color;
 
-	is_on_screen = pos[0] < game->width * BLOCK_SIZE && pos[0] >= 0 && \
-			pos[1] >= 0 && pos[1] < game->height * BLOCK_SIZE;
+	is_on_screen = ((pos[0] < game->width * BLOCK_SIZE && pos[0] >= 0) && \
+			(pos[1] >= 0 && pos[1] < game->height * BLOCK_SIZE));
 	if (is_on_screen)
 	{
 		color = get_pixel(&game->map.render_map, pos[0], pos[1]);
@@ -59,14 +59,6 @@ int	darken_range(t_game *game, t_enemy *enemy, double pos[2])
 
 static t_data	*get_enemy_sprite(t_game *game, t_enemy *enemy)
 {
-	enemy->delay += 1;
-	if (enemy->delay > FRAMES)
-	{
-		enemy->walk_frame += 1;
-		if (enemy->walk_frame > 2)
-			enemy->walk_frame = 0;
-		enemy->delay = 0;
-	}
 	if (enemy->direction[0] == -1)
 		return (&game->resources.enemy.left[enemy->walk_frame]);
 	if (enemy->direction[0] == 1)
@@ -103,4 +95,15 @@ void	render_enemy(t_game *game)
 		}
 		enemy = enemy->next;
 	}
+}
+
+void	draw_enemy_lost(t_game *game)
+{
+	double		enemy_pos[2];
+
+	f_copy_vetor(enemy_pos, game->enemy_found->position);
+	f_sub_vetor(enemy_pos, game->map.desloc);
+	f_vec_scale(enemy_pos, BLOCK_SIZE);
+	copy_img_to(&game->map.render_map, &game->resources.enemy_face, \
+		to_array(enemy_pos[0], enemy_pos[1] - 100, 150, 100));
 }

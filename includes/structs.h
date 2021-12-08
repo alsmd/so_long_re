@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 01:50:33 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:29:58 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,8 @@ typedef struct s_player
 	t_data			getting_poke[9];
 	t_data			victory[3];
 	t_data			lost[4];
-	int				x;
-	int				y;
 	my_size_t		steps;
-	double			f_x;
-	double			f_y;
-	int				direction;
+	int				move;
 	int				walk_frame;
 	int				delay;
 	int				walk_frame_animation;
@@ -79,7 +75,7 @@ typedef struct s_pokemon
 {
 	int					id;
 	int					walk_frame;
-	int					direction;
+	double				direction[2];
 	int					delay;
 	double				position[2];
 	struct s_pokemon	*next;
@@ -88,8 +84,6 @@ typedef struct s_pokemon
 typedef struct s_door
 {
 	double			position[2];
-	double			f_x;
-	double			f_y;
 	struct s_door	*next;
 }	t_door;
 
@@ -131,8 +125,6 @@ typedef struct s_game
 	int			lost;
 	int			height;
 	int			win;
-	double		vel;
-	double		enemy_vel;
 	int			restart;
 	int			close;
 }	t_game;

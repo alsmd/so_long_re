@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   check_cpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 23:02:41 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:59:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:58:58 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
 
 static int	player_collition_on_range(t_game *game, double position[2])
 {
@@ -33,15 +32,21 @@ static int	player_collition_on_range(t_game *game, double position[2])
 	return (0);
 }
 
-static void	check_pixel(t_game *game, double pos[2])
+static int	check_pixel(t_game *game, double pos[2])
 {
 	int		is_on_screen;
+	int		x;
+	int		y;
 
-	is_on_screen = pos[0] < game->width * BLOCK_SIZE && pos[0] >= 0 && \
-			pos[1] >= 0 && pos[1] < game->height * BLOCK_SIZE;
-	
+	x = (pos[0] / BLOCK_SIZE) + game->map.desloc[0];
+	y = (pos[1] / BLOCK_SIZE) + game->map.desloc[1];
+	if (game->map.array[y][x] == WALL)
+		return (1);
+	is_on_screen = ((pos[0] < game->width * BLOCK_SIZE && pos[0] >= 0) && \
+			(pos[1] >= 0 && pos[1] < game->height * BLOCK_SIZE));
 	if (is_on_screen && player_collition_on_range(game, pos))
 		game->lost = TRUE;
+	return (0);
 }
 
 int	check_range(t_game *game, t_enemy *enemy, double pos[2])
@@ -49,12 +54,10 @@ int	check_range(t_game *game, t_enemy *enemy, double pos[2])
 	int		pixels;
 	int		block;
 	double	pos_cpy[2];
-	int		x;
-	int		y;
-	
+
 	block = BLOCK_SIZE - 1;
-	pixels = game->enemy_range * BLOCK_SIZE;
-	while (pixels > 0)
+	pixels = game->enemy_range * BLOCK_SIZE + 1;
+	while (pixels++ > 0)
 	{
 		while (block > 0)
 		{
@@ -62,11 +65,8 @@ int	check_range(t_game *game, t_enemy *enemy, double pos[2])
 				f_new_vetor(pos_cpy, pos[0], pos[1] + block);
 			else
 				f_new_vetor(pos_cpy, pos[0] + block, pos[1]);
-			x = (pos_cpy[0] / BLOCK_SIZE) + game->map.desloc[0];
-			y = (pos_cpy[1] / BLOCK_SIZE) + game->map.desloc[1];
-			if (game->map.array[y][x] == WALL)
+			if (check_pixel(game, pos_cpy))
 				return (0);
-			check_pixel(game, pos_cpy);
 			block--;
 		}
 		block = BLOCK_SIZE - 1;
@@ -74,7 +74,6 @@ int	check_range(t_game *game, t_enemy *enemy, double pos[2])
 			pos[0] += enemy->direction[0];
 		else
 			pos[1] += enemy->direction[1];
-		pixels--;
 	}
 	return (0);
 }

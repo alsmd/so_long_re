@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 01:37:30 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:22:16 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,5 +253,7 @@ void	move_enemy(t_game *game);
 	@brief	Check if enemy or its range is inside de screen
 */
 int		enemy_range_on_screen(t_game *game, double x, double y);
+
+void	draw_enemy_lost(t_game *game);
 
 #endif

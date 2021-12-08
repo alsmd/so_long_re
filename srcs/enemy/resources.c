@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 01:18:18 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 16:56:21 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:39:42 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	new_enemy(t_game *game, int x, int y)
 {
 	t_enemy	*begin;
-	t_enemy *new_enemy;
+	t_enemy	*new_enemy;
 	int		move;
 
 	new_enemy = (t_enemy *) ft_calloc(1, sizeof(t_enemy));
@@ -43,6 +43,7 @@ void	create_enemies(t_game *game)
 	t_pokemon	*poke;
 	int			x;
 	int			y;
+
 	poke = game->pokemons;
 	while (poke)
 	{

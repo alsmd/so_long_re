@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 01:40:07 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:27:58 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static t_data	*get_direction(t_game *game)
 		game->player.delay = 0;
 		game->player.walk_frame = 0;
 	}
-	if (game->player.direction == DOWN)
+	if (game->player.move == DOWN)
 		return (game->player.sprite.down);
-	if (game->player.direction == UP)
+	if (game->player.move == UP)
 		return (game->player.sprite.up);
-	if (game->player.direction == LEFT)
+	if (game->player.move == LEFT)
 		return (game->player.sprite.left);
-	if (game->player.direction == RIGHT)
+	if (game->player.move == RIGHT)
 		return (game->player.sprite.right);
 	return (0);
 }
@@ -53,13 +53,12 @@ static void	draw_capturing_animation(t_game *game, int x, int y)
 	else
 	{
 		game->getting_poke = FALSE;
-		game->player.direction = UP;
+		game->player.move = UP;
 	}
 }
 
 static void	draw_victory(t_game *game, int x, int y)
 {
-	static int	side;
 	static int	render;
 	int			frame;
 
@@ -73,16 +72,8 @@ static void	draw_victory(t_game *game, int x, int y)
 	}
 	if (game->player.delay_animation > FRAMES)
 	{
-		if (frame < 1)
-		{
-			if (side != 1)
-			{
-				game->player.walk_frame_animation = 1;
-			}
-			else
-				game->player.walk_frame_animation = 2;
-			side = game->player.walk_frame_animation;
-		}
+		if (frame == 0)
+			game->player.walk_frame_animation = (rand() % 2) + 1;
 		else
 			game->player.walk_frame_animation = 0;
 		game->player.delay_animation = 0;
@@ -99,8 +90,6 @@ static void	draw_lost(t_game *game, int x, int y)
 	frame = game->player.walk_frame_animation;
 	copy_img_to(&game->map.render_map, &game->player.lost[frame], \
 			to_array(x, y, BLOCK_SIZE, BLOCK_SIZE));
-	copy_img_to(&game->map.render_map, &game->resources.enemy_face, \
-		to_array((game->enemy_found->position[0] - game->map.desloc_x) * BLOCK_SIZE, (game->enemy_found->position[1] - game->map.desloc_y) * BLOCK_SIZE - 100, 150, 100));
 	if (render > 3)
 	{
 		copy_img_to(&game->map.render_map, &game->resources.reset_message, \

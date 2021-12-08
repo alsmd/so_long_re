@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 01:06:08 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/08 22:04:46 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	change_frame(t_game *game, int move)
 	else
 		game->player.walk_frame = 1;
 	if (move == DOWN)
-		game->player.direction = DOWN;
+		game->player.move = DOWN;
 	if (move == UP)
-		game->player.direction = UP;
+		game->player.move = UP;
 	if (move == LEFT)
-		game->player.direction = LEFT;
+		game->player.move = LEFT;
 	if (move == RIGHT)
-		game->player.direction = RIGHT;
+		game->player.move = RIGHT;
 }
 
 void	player_move(t_game *game, int move)
@@ -55,6 +55,4 @@ void	player_move(t_game *game, int move)
 			f_sum_vetor(game->player.position, direction);
 		check_enemy_collition(game);
 	}
-	printf("desloc x %f, desloc y %f\n", game->map.desloc[0], game->map.desloc[1]);
-	printf("player x %f, player y %f\n", game->player.position[0], game->player.position[1]);
 }
