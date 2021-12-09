@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 16:00:12 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:11:05 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	player_move(t_game *game, int move)
 			f_sum_vetor(game->map.desloc, direction);
 		else
 			f_sum_vetor(game->player.position, direction);
+		game->player.steps += 1;
 		check_enemy_collition(game);
 	}
 }
