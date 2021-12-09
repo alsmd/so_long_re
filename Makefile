@@ -19,7 +19,7 @@ UTILS = ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.
 OBJS_UTILS = $(UTILS:.c=.o)
 NAME = so_long
 
-CFLAGS		= -g
+CFLAGS		= -Wall -Werror -Wextra
 FLAGS		= -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:31:47 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 20:46:39 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:04:43 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ static int	check_map_exist(char *map_name, int *fd)
 	return (1);
 }
 
-static int	check_map_elements(t_game *game, char *map)
+static int	check_map_elements(t_game *game)
 {
 	int	y;
 	int	check[3];
 	int	x;
-	int	pass;
 
 	y = 0;
 	x = 0;
@@ -78,7 +77,7 @@ static int	check_map_format(t_game *game, int fd)
 		return (0);
 	put_map_on_array(game, map);
 	game->map.width = ft_strlen(game->map.array[0]);
-	if (!check_map_elements(game, map))
+	if (!check_map_elements(game))
 		return (0);
 	while (y < game->map.height)
 	{

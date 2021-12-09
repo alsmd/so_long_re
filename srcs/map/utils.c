@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:05:18 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/03 18:00:58 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:06:35 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	put_map_on_array(t_game *game, char *map)
 	}
 }
 
-int	check_element(t_game *game, int y, int *check)
+void	check_element(t_game *game, int y, int *check)
 {
 	if (is_in(game->map.array[y], COLLETIBLE))
 		check[0] = 1;

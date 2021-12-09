@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'srcs/map/check.o', needed by 'so_long'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,12 +8,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Dec  9 16:57:34 2021
+# Make data base, printed on Thu Dec  9 17:03:58 2021
 
 # Variables
 
 # makefile (from 'Makefile', line 13)
- 
 UTILS = ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/ft_strdup.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c ./srcs/utils/color.c ./srcs/utils/my_rand.c
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
@@ -40,7 +41,7 @@ VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
 _ = /home/coder/.vscode-server/bin/ccbaa2d27e38e5afa3e5c21c1c7bef4657064247/node
 # makefile (from 'Makefile', line 22)
-CFLAGS = -g
+CFLAGS = -Wall -Werror -Wextra
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # 'override' directive
@@ -160,9 +161,9 @@ MOTD_SHOWN = pam
 
 # Directories
 
-# . (device 115, inode 221316407): 17 files, no impossibilities.
+# . (device 115, inode 221316407): 10 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -172,17 +173,15 @@ MOTD_SHOWN = pam
 
 # Not a target:
 srcs/map/draw.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.234587277
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/pokemon/action.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.734605959
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/get_next_line_utils.c:
@@ -193,10 +192,9 @@ srcs/utils/get_next_line_utils.c:
 
 # Not a target:
 srcs/enemy/action.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.890611789
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_calloc.c:
@@ -207,31 +205,27 @@ srcs/utils/ft_calloc.c:
 
 # Not a target:
 srcs/pokemon/draw.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.674603717
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/enemy/draw.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.810608799
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: so_long
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
+#  File has not been updated.
 
 # Not a target:
 srcs/game/draw.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.422594301
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_strdup.c:
@@ -243,7 +237,7 @@ srcs/utils/ft_strdup.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:33.322478481
+#  Last modified 2021-12-09 17:03:31.014212786
 #  File has been updated.
 #  Successfully updated.
 
@@ -256,22 +250,20 @@ srcs/utils/pixel_manipulation.c:
 
 # Not a target:
 srcs/player/check.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.602601027
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/game/game_init.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.350591611
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/init.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.122583092
+#  Last modified 2021-12-09 17:03:37.74246786
 #  File has been updated.
 #  Successfully updated.
 
@@ -284,14 +276,14 @@ srcs/utils/get_next_line.c:
 
 # Not a target:
 srcs/player/resources.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.494596991
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/only_has.c:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2021-12-01 19:15:44.837679493
 #  File has been updated.
 #  Successfully updated.
@@ -301,7 +293,6 @@ srcs/utils/only_has.c:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 32):
- 
 	${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
 
 fclean: clean
@@ -327,10 +318,9 @@ srcs/utils/color.c:
 
 # Not a target:
 srcs/vetor/create.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.95461418
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/my_rand.c:
@@ -348,17 +338,15 @@ srcs/utils/is_in.c:
 
 # Not a target:
 srcs/vetor/f_operation.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:37.062618215
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/player/action.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.566599682
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -375,10 +363,9 @@ srcs/utils/ft_itoa.c:
 
 # Not a target:
 srcs/vetor/operation.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.990615524
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_strlen.c:
@@ -389,10 +376,9 @@ srcs/utils/ft_strlen.c:
 
 # Not a target:
 srcs/player/draw.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.530598337
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 run: re
 #  Implicit rule search has not been done.
@@ -408,10 +394,9 @@ re: fclean all
 
 # Not a target:
 srcs/map/utils.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.198585932
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Implicit rule search has not been done.
@@ -423,9 +408,8 @@ clean:
 # Not a target:
 srcs/map/check.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.162584586
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_strjoin.c:
@@ -436,31 +420,27 @@ srcs/utils/ft_strjoin.c:
 
 # Not a target:
 srcs/pokemon/check.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.706604913
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/enemy/utils.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.922612984
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/enemy/check.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.846610144
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/vetor/f_create.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:37.02261672
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/ft_strcat.c:
@@ -471,74 +451,66 @@ srcs/utils/ft_strcat.c:
 
 # Not a target:
 srcs/game/utils.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.386592956
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/pokemon/resources.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.642602522
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 so_long: srcs/utils/create_img.c srcs/utils/ft_calloc.c srcs/utils/ft_itoa.c srcs/utils/ft_strcat.c srcs/utils/ft_strjoin.c srcs/utils/ft_strlen.c srcs/utils/get_next_line_utils.c srcs/utils/ft_strdup.c srcs/utils/get_next_line.c srcs/utils/is_in.c srcs/utils/only_has.c srcs/utils/pixel_manipulation.c srcs/utils/color.c srcs/utils/my_rand.c srcs/main.o srcs/message.o srcs/init.o srcs/map/check.o srcs/map/utils.o srcs/map/draw.o srcs/game/game_config.o srcs/game/resources.o srcs/game/game_init.o srcs/game/utils.o srcs/game/draw.o srcs/game/check.o srcs/player/resources.o srcs/player/draw.o srcs/player/action.o srcs/player/check.o srcs/pokemon/resources.o srcs/pokemon/draw.o srcs/pokemon/check.o srcs/pokemon/action.o srcs/enemy/resources.o srcs/enemy/draw.o srcs/enemy/check.o srcs/enemy/action.o srcs/enemy/utils.o srcs/vetor/create.o srcs/vetor/operation.o srcs/vetor/f_create.o srcs/vetor/f_operation.o srcs/vetor/f_operation_2.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-12-09 16:56:37.582637645
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 #  recipe to execute (from 'Makefile', line 35):
 	${CC} $(CFLAGS) -o $(NAME) $(OBJS) $(UTILS) $(FLAGS)
 
 # Not a target:
 srcs/game/check.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.454595497
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/enemy/resources.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.770607304
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/message.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.090581896
+#  Last modified 2021-12-09 17:03:37.706466495
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/vetor/f_operation_2.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:37.09861956
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/game/game_config.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.270588622
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.054580551
+#  Last modified 2021-12-09 17:03:37.670465131
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/game/resources.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 16:56:36.310590117
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
 # Load=54/1024=5%, Rehash=0, Collisions=1/116=1%
@@ -548,12 +520,12 @@ srcs/game/resources.o:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 71 / storage = 1161 B / avg = 16 B
-# current buf: size = 8162 B / used = 1161 B / count = 71 / avg = 16 B
+# strcache buffers: 1 (0) / strings = 65 / storage = 1084 B / avg = 16 B
+# current buf: size = 8162 B / used = 1084 B / count = 65 / avg = 16 B
 
-# strcache performance: lookups = 89 / hit rate = 20%
+# strcache performance: lookups = 82 / hit rate = 20%
 # hash-table stats:
-# Load=71/8192=1%, Rehash=0, Collisions=1/89=1%
-# Finished Make data base on Thu Dec  9 16:57:34 2021
+# Load=65/8192=1%, Rehash=0, Collisions=1/82=1%
+# Finished Make data base on Thu Dec  9 17:03:58 2021
 
  

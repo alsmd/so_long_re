@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 19:43:55 by flavio            #+#    #+#             */
-/*   Updated: 2021/11/30 13:05:30 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:07:18 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*r;
-	int		index;
+	size_t	index;
 
 	index = 0;
 	if (nmemb * size > INT_MAX)

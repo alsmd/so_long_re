@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 16:28:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:06:41 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		map_check(t_game *game, char *map_name);
 /*
 	@brief	map_check's helper
 */
-int		check_element(t_game *game, int y, int *check);
+void	check_element(t_game *game, int y, int *check);
 
 /*
 	@brief	Returns a string containing the map
