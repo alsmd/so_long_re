@@ -1,5 +1,5 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'srcs/map/check.o', needed by 'so_long'.  Stop.
+make: *** No rule to make target 'srcs/main.o', needed by 'so_long'.  Stop.
  
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
@@ -8,7 +8,7 @@ make: *** No rule to make target 'srcs/map/check.o', needed by 'so_long'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Dec  9 17:03:58 2021
+# Make data base, printed on Thu Dec  9 17:14:06 2021
 
 # Variables
 
@@ -199,7 +199,7 @@ srcs/enemy/action.o:
 # Not a target:
 srcs/utils/ft_calloc.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-01 19:15:44.813678573
+#  Last modified 2021-12-09 17:07:18.478854648
 #  File has been updated.
 #  Successfully updated.
 
@@ -216,9 +216,15 @@ srcs/enemy/draw.o:
 #  File has not been updated.
 
 all: so_long
+#  Phony target (prerequisite of .PHONY).
 #  Command line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
 #  File does not exist.
+#  File has not been updated.
+
+.PHONY: clean fclean bonus re all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
@@ -237,7 +243,7 @@ srcs/utils/ft_strdup.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 17:03:31.014212786
+#  Last modified 2021-12-09 17:11:25.248262096
 #  File has been updated.
 #  Successfully updated.
 
@@ -262,10 +268,9 @@ srcs/game/game_init.o:
 
 # Not a target:
 srcs/init.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 17:03:37.74246786
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/utils/get_next_line.c:
@@ -275,6 +280,7 @@ srcs/utils/get_next_line.c:
 #  Successfully updated.
 
 # Not a target:
+ 
 srcs/player/resources.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -283,10 +289,15 @@ srcs/player/resources.o:
 # Not a target:
 srcs/utils/only_has.c:
 #  Implicit rule search has been done.
- 
 #  Last modified 2021-12-01 19:15:44.837679493
 #  File has been updated.
 #  Successfully updated.
+
+bonus: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
 
 .c.o:
 #  Implicit rule search has not been done.
@@ -296,10 +307,11 @@ srcs/utils/only_has.c:
 	${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
 
 fclean: clean
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 43):
+#  recipe to execute (from 'Makefile', line 46):
 	$(RM) $(NAME)
 
 # Not a target:
@@ -332,7 +344,7 @@ srcs/utils/my_rand.c:
 # Not a target:
 srcs/utils/is_in.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-03 17:49:46.030911452
+#  Last modified 2021-12-09 17:08:08.84877263
 #  File has been updated.
 #  Successfully updated.
 
@@ -388,8 +400,9 @@ run: re
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) ./maps/simple.ber
 
 re: fclean all
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 
 # Not a target:
@@ -399,16 +412,17 @@ srcs/map/utils.o:
 #  File has not been updated.
 
 clean:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 38):
 	$(RM) $(OBJS) $(OBJS_UTILS)
 
 # Not a target:
 srcs/map/check.o:
-#  Implicit rule search has been done.
-#  File does not exist.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
@@ -482,10 +496,9 @@ srcs/enemy/resources.o:
 
 # Not a target:
 srcs/message.o:
-#  Implicit rule search has been done.
-#  Last modified 2021-12-09 17:03:37.706466495
-#  File has been updated.
-#  Successfully updated.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 srcs/vetor/f_operation_2.o:
@@ -502,9 +515,8 @@ srcs/game/game_config.o:
 # Not a target:
 srcs/main.o:
 #  Implicit rule search has been done.
-#  Last modified 2021-12-09 17:03:37.670465131
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 srcs/game/resources.o:
@@ -513,19 +525,19 @@ srcs/game/resources.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=54/1024=5%, Rehash=0, Collisions=1/116=1%
+# Load=56/1024=5%, Rehash=0, Collisions=1/124=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 65 / storage = 1084 B / avg = 16 B
-# current buf: size = 8162 B / used = 1084 B / count = 65 / avg = 16 B
+# strcache buffers: 1 (0) / strings = 67 / storage = 1097 B / avg = 16 B
+# current buf: size = 8162 B / used = 1097 B / count = 67 / avg = 16 B
 
-# strcache performance: lookups = 82 / hit rate = 20%
+# strcache performance: lookups = 92 / hit rate = 27%
 # hash-table stats:
-# Load=65/8192=1%, Rehash=0, Collisions=1/82=1%
-# Finished Make data base on Thu Dec  9 17:03:58 2021
+# Load=67/8192=1%, Rehash=0, Collisions=1/92=1%
+# Finished Make data base on Thu Dec  9 17:14:06 2021
 
  

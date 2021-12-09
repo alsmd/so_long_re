@@ -39,7 +39,12 @@ clean:
 
 run: re
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) ./maps/simple.ber
+
+bonus: all
+
 fclean : clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: clean fclean bonus re all

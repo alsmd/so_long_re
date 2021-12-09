@@ -1,5 +1,8 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/coder/Desktop/so_long_re'
+gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/main.c -o srcs/main.o
+gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/message.c -o srcs/message.o
+gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/init.c -o srcs/init.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/map/check.c -o srcs/map/check.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/map/utils.c -o srcs/map/utils.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/map/draw.c -o srcs/map/draw.o
