@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:23:34 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:48:01 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 int	update_frame(t_game *game)
 {
 	char	*steps;
+
 	if (game->close)
 		return (1);
 	render_map(game);
-	if (game->win == FALSE && game->lost == FALSE && game->getting_poke == FALSE)
+	if (!game->win && !game->lost && !game->getting_poke)
 		move_enemies(game);
 	else if (game->lost == TRUE)
 	{

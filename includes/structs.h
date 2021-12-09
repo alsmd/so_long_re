@@ -6,16 +6,18 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:29:58 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:39:50 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
 # define POKEMON_AMOUNT 8
 # define FALSE 0
 # define TRUE 1
-# define my_size_t unsigned long int
+# define MY_SIZE_T unsigned long int
+
 typedef struct s_data
 {
 	void	*img;
@@ -60,7 +62,7 @@ typedef struct s_player
 	t_data			getting_poke[9];
 	t_data			victory[3];
 	t_data			lost[4];
-	my_size_t		steps;
+	MY_SIZE_T		steps;
 	int				move;
 	int				walk_frame;
 	int				delay;

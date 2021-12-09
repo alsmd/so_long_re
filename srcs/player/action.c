@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 23:54:43 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:04:46 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:00:12 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	player_move(t_game *game, int move)
 {
 	double	position[2];
 	double	direction[2];
-	
-	f_copy_vetor(position,  game->player.position);
+
+	f_copy_vetor(position, game->player.position);
 	f_sum_vetor(position, game->map.desloc);
 	if (move == DOWN)
 		f_new_vetor(direction, 0, 1);

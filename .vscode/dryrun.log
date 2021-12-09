@@ -23,7 +23,6 @@ gcc -g -Imlx -Ibass -c srcs/pokemon/action.c -o srcs/pokemon/action.o
 gcc -g -Imlx -Ibass -c srcs/enemy/resources.c -o srcs/enemy/resources.o
 gcc -g -Imlx -Ibass -c srcs/enemy/draw.c -o srcs/enemy/draw.o
 gcc -g -Imlx -Ibass -c srcs/enemy/check.c -o srcs/enemy/check.o
- 
 gcc -g -Imlx -Ibass -c srcs/enemy/action.c -o srcs/enemy/action.o
 gcc -g -Imlx -Ibass -c srcs/enemy/utils.c -o srcs/enemy/utils.o
 gcc -g -Imlx -Ibass -c srcs/vetor/create.c -o srcs/vetor/create.o

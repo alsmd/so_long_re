@@ -6,14 +6,14 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:22:16 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:42:54 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define FRAMES 60
-# define DARKNESS 0.7
+# define DARKNESS 0.5
 # define TRANSPARENT 0x589058
 # define BLOCK_SIZE 32
 # define WALL '1'
@@ -47,8 +47,7 @@
 /*
 	@brief	Start the game
 */
-int	init(char *map, t_game *game);
-
+int		init(char *map, t_game *game);
 
 //MAP
 /*
@@ -65,7 +64,6 @@ int		check_element(t_game *game, int y, int *check);
 /*
 	@brief	Returns a string containing the map
 */
-
 char	*get_map(int fd);
 
 /*
@@ -133,8 +131,8 @@ void	free_resources(t_game *game);
 */
 int		aprox(double a, double b);
 
-int	round_up(double n);
-int	round_down(double n);
+int		round_up(double n);
+int		round_down(double n);
 
 //RESOURCES
 /*
@@ -177,8 +175,7 @@ void	player_move(t_game *game, int move);
 /*
 	@brief	check collision on walls
 */
-int	check_collision(t_game *game, double direction[2], double position[2]);
-
+int		check_collision(t_game *game, double direction[2], double position[2]);
 
 //POKEMON
 
@@ -231,7 +228,7 @@ void	render_enemy(t_game *game);
 /*
 	@brief Check Enemy collition with player.
 */
-int	check_enemy_collition(t_game *game);
+int		check_enemy_collition(t_game *game);
 
 /*
 	@brief Check if enemy can make a moviment x or y.

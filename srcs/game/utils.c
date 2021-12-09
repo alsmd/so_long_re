@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 18:54:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 17:47:48 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:46:56 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ int	is_on_screen(t_game *game, double x, double y)
 	return (0);
 }
 
-
 int	round_up(double n)
 {
 	int	tmp;
 
-	tmp = (int) (n + 0.0001f);
+	tmp = (int)(n + 0.0001f);
 	if (aprox(tmp, n))
 	{
 		return (tmp);
@@ -51,7 +50,7 @@ int	round_down(double n)
 {
 	int	tmp;
 
-	tmp = (int) (n + 0.0001f);
+	tmp = (int)(n + 0.0001f);
 	if (aprox(tmp, n))
 	{
 		return (tmp);

@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:16:24 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 20:41:18 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 15:45:55 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 */
 void	new_vetor(int vetor[2], int x, int y);
 
-
 /*
 	@brief	Vetor operations, result is stored inside the first vetor
 */
@@ -27,7 +26,6 @@ void	multi_vetor(int v1[2], int v2[2]);
 void	copy_vetor(int v1[2], int v2[2]);
 void	sub_vetor(int v1[2], int v2[2]);
 void	vec_scale(int v1[2], int scale);
-
 
 /*
 	@brief	Float versions

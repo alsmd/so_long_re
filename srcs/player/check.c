@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 00:49:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:52:20 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:02:18 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,22 @@ int	can_move_cam(t_game *game)
 	double	pos[2];
 	double	direction[2];
 	double	desloc[2];
-	double	width;
-	double	heig;
 
-	width = game->map.width;
-	heig = game->map.height;
 	f_copy_vetor(pos, game->player.position);
 	f_copy_vetor(direction, game->player.direc);
 	f_copy_vetor(desloc, game->map.desloc);
 	if (direction[0] != 0)
 	{
-		if (pos[0] >= game->width / 2 && direction[0] > 0 && desloc[0] + game->width < width)
+		if (pos[0] >= game->width / 2 && direction[0] > 0 && desloc[0] + \
+			game->width < game->map.width)
 			return (1);
 		else if (pos[0] <= game->width / 2 && direction[0] < 0 && desloc[0] > 0)
 			return (1);
 	}
 	if (direction[1] != 0)
 	{
-		if (pos[1] >= game->height / 2 && direction[1] > 0 && desloc[1] + game->height < heig)
+		if (pos[1] >= game->height / 2 && direction[1] > 0 && desloc[1] + \
+			game->height < game->map.height)
 			return (1);
 		else if (pos[1] < game->height / 2 && direction[1] < 0 && desloc[1] > 0)
 			return (1);
