@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:29:48 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:53:19 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	game_config(t_game *game)
 	if (game->vars.mlx == 0)
 		return (SERVER_ERROR);
 	game->vars.win = mlx_new_window(game->vars.mlx, game->width * BLOCK_SIZE, \
-			game->height * BLOCK_SIZE, "Pokemon");
+			game->height * BLOCK_SIZE, "So_Long");
 	if (game->vars.win == 0)
 		return (SERVER_ERROR);
 	set_cam(game);

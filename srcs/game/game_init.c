@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 17:38:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 17:51:30 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	game_init(t_game *game)
 {
 	mlx_hook(game->vars.win, KeyPress, KeyPressMask, keypress, game);
 	mlx_loop_hook(game->vars.mlx, update_frame, game);
-	mlx_hook(game->vars.win, DestroyNotify, 1L<<17, close_game_x, game);
+	mlx_hook(game->vars.win, DestroyNotify, 1L << 17, close_game_x, game);
 	mlx_loop(game->vars.mlx);
 	return (1);
 }
