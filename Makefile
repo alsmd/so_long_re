@@ -38,7 +38,7 @@ clean:
 	$(RM) $(OBJS) $(OBJS_UTILS)
 
 run: re
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) ./maps/simple.ber
 fclean : clean
 	$(RM) $(NAME)
 

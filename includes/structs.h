@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 16:23:12 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:55:23 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,9 @@ enum e_status
 	WRONG_MAP_EXTENTION,
 	MAP_NOT_EXIST,
 	WRONG_MAP_FORMAT,
-	SERVER_ERROR
+	SERVER_ERROR,
+	INVALID_ARG_NUMBER,
+	GAME_FINISHED
 };
 
 #endif
