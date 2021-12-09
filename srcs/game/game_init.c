@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 17:51:30 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 18:15:18 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	close_game_x(t_game *game)
 	close_game(game);
 	mlx_destroy_display(game->vars.mlx);
 	free(game->vars.mlx);
-	exit(1);
+	exit(0);
 	return (1);
 }
 
