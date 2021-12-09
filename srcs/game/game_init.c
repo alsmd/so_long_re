@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 20:52:01 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 15:48:01 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:28:23 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	update_frame(t_game *game)
 		move_enemy(game);
 	}
 	render_pokemon(game);
+	draw_icon(game);
 	render_door(game);
 	render_enemy(game);
 	render_player(game);

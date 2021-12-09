@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 19:51:20 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 20:52:04 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:32:35 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,20 @@ void	render_door(t_game *game)
 				to_array(position[0], position[1], BLOCK_SIZE, BLOCK_SIZE));
 		}
 		door = door->next;
+	}
+}
+
+void	draw_icon(t_game *game)
+{
+	int		index;
+	t_data	*sprite;
+
+	sprite = &game->resources.pokeball;
+	index = 0;
+	while (index < game->captured_poke)
+	{
+		copy_img_to(&game->map.render_map, sprite, \
+				to_array((3 * BLOCK_SIZE) + (index * 16 + 8), 10, 16, 16));
+		index++;
 	}
 }

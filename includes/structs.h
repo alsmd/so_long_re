@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:21:02 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 15:39:50 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:23:12 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ typedef struct s_resources
 	t_data		wall;
 	t_data		floor[3];
 	t_data		door[2];
+	t_data		pokeball;
 	t_sprite	pokemon_sprites[POKEMON_AMOUNT];
 	t_sprite	enemy;
 	t_data		enemy_face;
@@ -121,6 +122,7 @@ typedef struct s_game
 	t_player	player;
 	t_door		*doors;
 	double		enemy_speed[2];
+	int			captured_poke;
 	int			getting_poke;
 	int			enemy_range;
 	int			width;

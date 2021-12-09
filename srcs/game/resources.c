@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:33:34 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/07 21:00:53 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:22:35 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	load_resources(t_game *game)
 	pokemon_sprites(game);
 	enemy_sprites(game);
 	load_img(&resour->wall, "./assets/imgs/sceane/wall.xpm", game);
+	load_img(&resour->pokeball, "./assets/imgs/pokemons/pokeball.xpm", game);
 	load_img(&resour->enemy_face, "./assets/imgs/enemy/enemy_face.xpm", game);
 	load_img(&resour->reset_message, "./assets/imgs/reset_message.xpm", game);
 	load_img(&resour->floor[0], "./assets/imgs/sceane/floor_0.xpm", game);
@@ -100,4 +101,5 @@ void	free_resources(t_game *game)
 	mlx_destroy_image(game->vars.mlx, game->resources.door[1].img);
 	mlx_destroy_image(game->vars.mlx, game->resources.enemy_face.img);
 	mlx_destroy_image(game->vars.mlx, game->resources.reset_message.img);
+	mlx_destroy_image(game->vars.mlx, game->resources.pokeball.img);
 }

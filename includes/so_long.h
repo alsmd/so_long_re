@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 15:42:54 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:28:04 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,11 @@ void	create_elements(t_game *game);
 	@brief	Render door if it is inside visible screen.
 */
 void	render_door(t_game *game);
+
+/*
+	@brief	Draw a pokeball for each captured pokemon.
+*/
+void	draw_icon(t_game *game);
 
 /*
 	@brief	Check door collition
