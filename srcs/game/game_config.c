@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:07:35 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 17:53:19 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 18:21:58 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ static int	set_cam(t_game *game)
 
 static void	set_game_size(t_game *game)
 {
-	if (game->map.width > 15)
-		game->width = 15;
+	if (game->map.width > 25)
+		game->width = 25;
 	else
 		game->width = game->map.width;
-	if (game->map.height > 15)
-		game->height = 15;
+	if (game->map.height > 18)
+		game->height = 18;
 	else
 		game->height = game->map.height;
 }
