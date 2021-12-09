@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/08 22:48:28 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/09 16:13:26 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ void	draw_enemy_lost(t_game *game)
 	f_copy_vetor(enemy_pos, game->enemy_found->position);
 	f_sub_vetor(enemy_pos, game->map.desloc);
 	f_vec_scale(enemy_pos, BLOCK_SIZE);
+	enemy_pos[1] -= 100;
+	if (enemy_pos[1] < 0)
+		enemy_pos[1] = 0;
 	copy_img_to(&game->map.render_map, &game->resources.enemy_face, \
-		to_array(enemy_pos[0], enemy_pos[1] - 100, 150, 100));
+		to_array(enemy_pos[0], enemy_pos[1], 150, 100));
 }
