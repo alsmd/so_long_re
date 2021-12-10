@@ -6,13 +6,13 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 10:22:13 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 17:06:41 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/10 00:32:29 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define FRAMES 60
+# define FRAMES 25
 # define DARKNESS 0.5
 # define TRANSPARENT 0x589058
 # define BLOCK_SIZE 32

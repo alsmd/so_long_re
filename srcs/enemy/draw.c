@@ -6,7 +6,7 @@
 /*   By: flda-sil <flda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:08:51 by flda-sil          #+#    #+#             */
-/*   Updated: 2021/12/09 16:13:26 by flda-sil         ###   ########.fr       */
+/*   Updated: 2021/12/10 00:33:00 by flda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	darken_pixel(t_game *game, double pos[2])
 	{
 		color = get_pixel(&game->map.render_map, pos[0], pos[1]);
 		color = get_color_shade(color, 1.3);
-		color = get_color_shade_red(color, 0.9);
+		color = get_color_shade_red(color, 0.8);
 		put_pixel(&game->map.render_map, pos[0], pos[1], color);
 	}
 }
@@ -35,7 +35,7 @@ int	darken_range(t_game *game, t_enemy *enemy, double pos[2])
 	double	pos_cpy[2];
 
 	block = BLOCK_SIZE - 1;
-	pixels = game->enemy_range * BLOCK_SIZE;
+	pixels = game->enemy_range * BLOCK_SIZE + BLOCK_SIZE;
 	while (pixels > 0)
 	{
 		while (block > 0)
@@ -87,9 +87,9 @@ void	render_enemy(t_game *game)
 			sprite = get_enemy_sprite(game, enemy);
 			copy_img_to(&game->map.render_map, sprite, \
 				to_array(position[0], position[1], BLOCK_SIZE, BLOCK_SIZE));
-			if (enemy->direction[1] == 1)
+			if (enemy->direction[1] == -1)
 				position[1] += BLOCK_SIZE;
-			if (enemy->direction[0] == 1)
+			if (enemy->direction[0] == -1)
 				position[0] += BLOCK_SIZE;
 			darken_range(game, enemy, position);
 		}

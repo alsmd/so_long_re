@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/coder/Desktop/so_long_re'
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/main.c -o srcs/main.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/message.c -o srcs/message.o
@@ -13,6 +13,7 @@ gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/game/utils.c -o srcs/game/utils.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/game/draw.c -o srcs/game/draw.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/game/check.c -o srcs/game/check.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/player/resources.c -o srcs/player/resources.o
+ 
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/player/draw.c -o srcs/player/draw.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/player/action.c -o srcs/player/action.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/player/check.c -o srcs/player/check.o
@@ -20,6 +21,7 @@ gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/pokemon/resources.c -o srcs/pokem
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/pokemon/draw.c -o srcs/pokemon/draw.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/pokemon/check.c -o srcs/pokemon/check.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/pokemon/action.c -o srcs/pokemon/action.o
+ 
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/enemy/resources.c -o srcs/enemy/resources.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/enemy/draw.c -o srcs/enemy/draw.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/enemy/check.c -o srcs/enemy/check.o
@@ -29,6 +31,7 @@ gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/vetor/create.c -o srcs/vetor/crea
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/vetor/operation.c -o srcs/vetor/operation.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/vetor/f_create.c -o srcs/vetor/f_create.o
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/vetor/f_operation.c -o srcs/vetor/f_operation.o
+ 
 gcc -Wall -Werror -Wextra -Imlx -Ibass -c srcs/vetor/f_operation_2.c -o srcs/vetor/f_operation_2.o
 gcc -Wall -Werror -Wextra -o so_long ./srcs/main.o ./srcs/message.o ./srcs/init.o ./srcs/map/check.o ./srcs/map/utils.o ./srcs/map/draw.o ./srcs/game/game_config.o ./srcs/game/resources.o ./srcs/game/game_init.o ./srcs/game/utils.o ./srcs/game/draw.o ./srcs/game/check.o ./srcs/player/resources.o ./srcs/player/draw.o ./srcs/player/action.o ./srcs/player/check.o ./srcs/pokemon/resources.o ./srcs/pokemon/draw.o ./srcs/pokemon/check.o ./srcs/pokemon/action.o ./srcs/enemy/resources.o ./srcs/enemy/draw.o ./srcs/enemy/check.o ./srcs/enemy/action.o ./srcs/enemy/utils.o ./srcs/vetor/create.o ./srcs/vetor/operation.o ./srcs/vetor/f_create.o ./srcs/vetor/f_operation.o ./srcs/vetor/f_operation_2.o ./srcs/utils/create_img.c ./srcs/utils/ft_calloc.c ./srcs/utils/ft_itoa.c ./srcs/utils/ft_strcat.c ./srcs/utils/ft_strjoin.c ./srcs/utils/ft_strlen.c ./srcs/utils/get_next_line_utils.c ./srcs/utils/ft_strdup.c ./srcs/utils/get_next_line.c ./srcs/utils/is_in.c ./srcs/utils/only_has.c ./srcs/utils/pixel_manipulation.c ./srcs/utils/color.c ./srcs/utils/my_rand.c -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 make: Leaving directory '/home/coder/Desktop/so_long_re'
